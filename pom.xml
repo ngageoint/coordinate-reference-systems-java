@@ -1,22 +1,22 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>mil.nga.sf</groupId>
-	<artifactId>sf-proj</artifactId>
-	<version>4.0.0</version>
+	<groupId>mil.nga</groupId>
+	<artifactId>crs</artifactId>
+	<version>1.0.0</version>
 	<packaging>jar</packaging>
-	<name>Simple Features Projection</name>
-	<url>https://github.com/ngageoint/simple-features-proj-java</url>
-	<description>Library for performing projection conversions between Simple Feature Geometries</description>
+	<name>Coordinate Reference Systems</name>
+	<url>https://github.com/ngageoint/coordinate-reference-systems-java</url>
+	<description>Library implementation of OGC's 'Geographic information — Well-known text representation of coordinate reference systems' (18-010r7) specification</description>
 	<scm>
-		<url>git@github.com:ngageoint/simple-features-proj-java.git</url>
-		<connection>scm:git:git@github.com:ngageoint/simple-features-proj-java.git</connection>
-		<developerConnection>scm:git:git@github.com:ngageoint/simple-features-proj-java.git</developerConnection>
+		<url>git@github.com:ngageoint/coordinate-reference-systems-java.git</url>
+		<connection>scm:git:git@github.com:ngageoint/coordinate-reference-systems-java.git</connection>
+		<developerConnection>scm:git:git@github.com:ngageoint/coordinate-reference-systems-java.git</developerConnection>
 	</scm>
 	<licenses>
 		<license>
 			<name>The MIT License (MIT)</name>
-			<url>https://github.com/ngageoint/simple-features-proj-java/blob/master/LICENSE.txt</url>
+			<url>https://github.com/ngageoint/coordinate-reference-systems-java/blob/master/LICENSE.txt</url>
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
@@ -44,16 +44,6 @@
 	</properties>
 	<dependencies>
 		<dependency>
-			<groupId>mil.nga</groupId>
-			<artifactId>sf</artifactId>
-			<version>2.0.4</version>
-		</dependency>
-		<dependency>
-			<groupId>org.locationtech.proj4j</groupId>
-			<artifactId>proj4j</artifactId>
-			<version>1.1.2</version>
-		</dependency>
-		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.13.2</version>
@@ -80,11 +70,6 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<version>3.2.0</version>
-				<configuration>
-					<links>
-						<link>http://ngageoint.github.io/simple-features-java/docs/api/</link>
-					</links>
-				</configuration>
 				<executions>
 					<execution>
 						<id>attach-javadocs</id>
