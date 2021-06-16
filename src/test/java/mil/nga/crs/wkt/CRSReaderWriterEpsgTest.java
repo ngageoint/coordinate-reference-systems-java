@@ -217,6 +217,82 @@ public class CRSReaderWriterEpsgTest {
 	}
 
 	/**
+	 * Test EPSG 3375
+	 * 
+	 * @throws IOException
+	 *             upon error
+	 */
+	@Test
+	public void test3375() throws IOException {
+
+		String text = "PROJCRS[\"GDM2000 / Peninsula RSO\",BASEGEOGCRS[\"GDM2000\","
+				+ "DATUM[\"Geodetic Datum of Malaysia 2000\","
+				+ "ELLIPSOID[\"GRS 1980\",6378137,298.2572221,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],"
+				+ "ID[\"EPSG\",7019]],ID[\"EPSG\",6742]],ID[\"EPSG\",4742]],"
+				+ "CONVERSION[\"Peninsular RSO\",METHOD[\"Hotine Oblique Mercator (variant A)\",ID[\"EPSG\",9812]],"
+				+ "PARAMETER[\"Latitude of projection centre\",4,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"
+				+ "PARAMETER[\"Longitude of projection centre\",102.25,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"
+				+ "PARAMETER[\"Azimuth of initial line\",323.025796467,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"
+				+ "PARAMETER[\"Angle from Rectified to Skew Grid\",323.130102361,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"
+				+ "PARAMETER[\"Scale factor on initial line\",0.99984,SCALEUNIT[\"unity\",1,ID[\"EPSG\",9201]]],"
+				+ "PARAMETER[\"False easting\",804671,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"
+				+ "PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],ID[\"EPSG\",19895]],"
+				+ "CS[Cartesian,2,ID[\"EPSG\",4400]],AXIS[\"Easting (E)\",east],AXIS[\"Northing (N)\",north],"
+				+ "LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],"
+				+ "ID[\"EPSG\",3375]]";
+
+		CRS crs = CRSReader.read(text, true);
+
+		String expectedText = text.replace("6378137", "6378137.0")
+				.replace("804671", "804671.0").replace(",0,", ",0.0,")
+				.replace(",1,", ",1.0,").replace(",4,", ",4.0,");
+
+		assertEquals(expectedText, crs.toString());
+		assertEquals(expectedText, CRSWriter.write(crs));
+		assertEquals(WKTUtils.pretty(expectedText), CRSWriter.writePretty(crs));
+
+		text = "PROJCS[\"GDM2000 / Peninsula RSO\",GEOGCS[\"GDM2000\","
+				+ "DATUM[\"Geodetic_Datum_of_Malaysia_2000\","
+				+ "SPHEROID[\"GRS 1980\",6378137,298.257222101,AUTHORITY[\"EPSG\",\"7019\"]],"
+				+ "AUTHORITY[\"EPSG\",\"6742\"]],PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],"
+				+ "UNIT[\"degree\",0.01745329251994328,AUTHORITY[\"EPSG\",\"9122\"]],"
+				+ "AUTHORITY[\"EPSG\",\"4742\"]],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],"
+				+ "PROJECTION[\"Hotine_Oblique_Mercator\"],"
+				+ "PARAMETER[\"latitude_of_center\",4],"
+				+ "PARAMETER[\"longitude_of_center\",102.25],"
+				+ "PARAMETER[\"azimuth\",323.0257964666666],"
+				+ "PARAMETER[\"rectified_grid_angle\",323.1301023611111],"
+				+ "PARAMETER[\"scale_factor\",0.99984],"
+				+ "PARAMETER[\"false_easting\",804671],"
+				+ "PARAMETER[\"false_northing\",0],"
+				+ "AUTHORITY[\"EPSG\",\"3375\"],AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]";
+
+		crs = CRSReader.read(text, true);
+
+		expectedText = "PROJCRS[\"GDM2000 / Peninsula RSO\",BASEGEOGCRS[\"GDM2000\","
+				+ "DATUM[\"Geodetic_Datum_of_Malaysia_2000\","
+				+ "ELLIPSOID[\"GRS 1980\",6378137.0,298.257222101,ID[\"EPSG\",7019]],"
+				+ "ID[\"EPSG\",6742]],PRIMEM[\"Greenwich\",0.0,ID[\"EPSG\",8901]],"
+				+ "UNIT[\"degree\",0.01745329251994328,ID[\"EPSG\",9122]],ID[\"EPSG\",4742]],"
+				+ "CONVERSION[\"GDM2000 / Peninsula RSO / Hotine_Oblique_Mercator\",METHOD[\"Hotine_Oblique_Mercator\"],"
+				+ "PARAMETER[\"latitude_of_center\",4.0],"
+				+ "PARAMETER[\"longitude_of_center\",102.25],"
+				+ "PARAMETER[\"azimuth\",323.0257964666666],"
+				+ "PARAMETER[\"rectified_grid_angle\",323.1301023611111],"
+				+ "PARAMETER[\"scale_factor\",0.99984],"
+				+ "PARAMETER[\"false_easting\",804671.0],"
+				+ "PARAMETER[\"false_northing\",0.0]],"
+				+ "CS[ellipsoidal,2],AXIS[\"Easting\",east],AXIS[\"Northing\",north],"
+				+ "UNIT[\"metre\",1.0,ID[\"EPSG\",9001]],"
+				+ "ID[\"EPSG\",3375]]";
+
+		assertEquals(expectedText, crs.toString());
+		assertEquals(expectedText, CRSWriter.write(crs));
+		assertEquals(WKTUtils.pretty(expectedText), CRSWriter.writePretty(crs));
+
+	}
+
+	/**
 	 * Test EPSG 3395
 	 * 
 	 * @throws IOException
