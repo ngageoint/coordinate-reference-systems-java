@@ -28,5 +28,5 @@ jobs:
     - name: Upload Artifacts
       uses: actions/upload-artifact@v1
       with:
-        name: simple-features-proj
+        name: coordinate-reference-systems
         path: target/release

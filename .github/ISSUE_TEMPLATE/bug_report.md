@@ -11,8 +11,8 @@ Please fill out as much known and relevant information as possible.
 
 #### Version Information:
 
-  * SF Proj Java Version:
-  * SF Proj Java Source: (e.g. Central Repository, Release, Source Code Build)
+  * CRS Java Version:
+  * CRS Java Source: (e.g. Central Repository, Release, Source Code Build)
   * IDE Name & Version:
   * Maven Version: (mvn -version)
   * Java Version: (java -version)

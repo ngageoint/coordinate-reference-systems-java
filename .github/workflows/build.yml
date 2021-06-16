@@ -6,20 +6,20 @@ on:
       - master
 
 jobs:
-  
+
   build:
 
     runs-on: ubuntu-latest
 
     steps:
-    - name: Determine Simple Features Repository
+    - name: Determine Coordinate Reference Systems Repository
       uses: frabert/replace-string-action@master
       id: sf-repository
       with:
         pattern: 'proj-'
         string: "${{ github.repository }}"
         replace-with: ''
-    - name: Checkout Simple Features Repository
+    - name: Checkout Coordinate Reference Systems Repository
       uses: actions/checkout@v1
       with:
         repository: ${{ steps.sf-repository.outputs.replaced }}
@@ -28,8 +28,8 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    - name: Build & Install Simple Features
-      run: mvn -f ../simple-features-java clean install -DskipTests
+    - name: Build & Install Coordinate Reference Systems
+      run: mvn -f ../coordinate-reference-systems-java clean install -DskipTests
     - name: Checkout Repository
       uses: actions/checkout@v1
     - name: Build
