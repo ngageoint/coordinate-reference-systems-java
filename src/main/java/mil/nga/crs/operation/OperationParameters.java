@@ -23,7 +23,8 @@ public enum OperationParameters {
 	 * north axis parallel with true north
 	 */
 	ANGLE_FROM_RECTIFIED_TO_SKEW_GRID(8814, "angle from rectified to skew grid",
-			OperationType.MAP_PROJECTION, UnitType.ANGLEUNIT),
+			OperationType.MAP_PROJECTION, UnitType.ANGLEUNIT,
+			"rectified grid angle"),
 
 	/**
 	 * direction (north zero, east of north being positive) of the great circle
@@ -32,7 +33,7 @@ public enum OperationParameters {
 	 * The azimuth is given at the projection centre.
 	 */
 	AZIMUTH_OF_INITIAL_LINE(8813, "azimuth of initial line",
-			OperationType.MAP_PROJECTION, UnitType.ANGLEUNIT),
+			OperationType.MAP_PROJECTION, UnitType.ANGLEUNIT, "azimuth"),
 
 	/**
 	 * The rotation applied to spherical coordinates for the oblique projection,
