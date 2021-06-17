@@ -246,7 +246,7 @@ public enum OperationParameters {
 	 * process, defined by its value at the projection centre
 	 */
 	SCALE_FACTOR_ON_INITIAL_LINE(8815, "scale factor on initial line",
-			OperationType.MAP_PROJECTION, UnitType.SCALEUNIT),
+			OperationType.MAP_PROJECTION, UnitType.SCALEUNIT, "scale factor"),
 
 	/**
 	 * The factor by which the map grid is reduced or enlarged during the
