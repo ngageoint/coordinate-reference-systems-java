@@ -17,6 +17,80 @@ import mil.nga.crs.CoordinateReferenceSystem;
 public class CRSReaderWriterEpsgTest {
 
 	/**
+	 * Test EPSG 2057
+	 * 
+	 * @throws IOException
+	 *             upon error
+	 */
+	@Test
+	public void test2057() throws IOException {
+
+		String text = "PROJCRS[\"Rassadiran / Nakhl e Taqi\",BASEGEOGCRS[\"Rassadiran\","
+				+ "DATUM[\"Rassadiran\",ELLIPSOID[\"International 1924\",6378388,297,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],"
+				+ "ID[\"EPSG\",7022]],ID[\"EPSG\",6153]],ID[\"EPSG\",4153]],"
+				+ "CONVERSION[\"Nakhl e Taqi Oblique Mercator\",METHOD[\"Hotine Oblique Mercator (variant B)\",ID[\"EPSG\",9815]],"
+				+ "PARAMETER[\"Latitude of projection centre\",27.518828806,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"
+				+ "PARAMETER[\"Longitude of projection centre\",52.603539167,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"
+				+ "PARAMETER[\"Azimuth of initial line\",0.571661194,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"
+				+ "PARAMETER[\"Angle from Rectified to Skew Grid\",0.571661194,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"
+				+ "PARAMETER[\"Scale factor on initial line\",0.999895934,SCALEUNIT[\"unity\",1,ID[\"EPSG\",9201]]],"
+				+ "PARAMETER[\"Easting at projection centre\",658377.437,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"
+				+ "PARAMETER[\"Northing at projection centre\",3044969.194,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"
+				+ "ID[\"EPSG\",19951]],CS[Cartesian,2,ID[\"EPSG\",4400]],"
+				+ "AXIS[\"Easting (E)\",east],AXIS[\"Northing (N)\",north],"
+				+ "LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",2057]]";
+
+		CRS crs = CRSReader.read(text, true);
+
+		String expectedText = text.replace("6378388", "6378388.0")
+				.replace("297", "297.0").replace(",1,", ",1.0,");
+
+		assertEquals(expectedText, crs.toString());
+		assertEquals(expectedText, CRSWriter.write(crs));
+		assertEquals(WKTUtils.pretty(expectedText), CRSWriter.writePretty(crs));
+
+		text = "PROJCS[\"Rassadiran / Nakhl e Taqi\",GEOGCS[\"Rassadiran\","
+				+ "DATUM[\"Rassadiran\",SPHEROID[\"International 1924\",6378388,297,"
+				+ "AUTHORITY[\"EPSG\",\"7022\"]],TOWGS84[-133.63,-157.5,-158.62,0,0,0,0],AUTHORITY[\"EPSG\",\"6153\"]],"
+				+ "PRIMEM[\"Greenwich\",0,AUTHORITY[\"EPSG\",\"8901\"]],UNIT[\"degree\",0.01745329251994328,AUTHORITY[\"EPSG\",\"9122\"]],"
+				+ "AUTHORITY[\"EPSG\",\"4153\"]],UNIT[\"metre\",1,AUTHORITY[\"EPSG\",\"9001\"]],"
+				+ "PROJECTION[\"Hotine_Oblique_Mercator\"],"
+				+ "PARAMETER[\"latitude_of_center\",27.51882880555555],"
+				+ "PARAMETER[\"longitude_of_center\",52.60353916666667],"
+				+ "PARAMETER[\"azimuth\",0.5716611944444444],"
+				+ "PARAMETER[\"rectified_grid_angle\",0.5716611944444444],"
+				+ "PARAMETER[\"scale_factor\",0.999895934],"
+				+ "PARAMETER[\"false_easting\",658377.437],"
+				+ "PARAMETER[\"false_northing\",3044969.194],AUTHORITY[\"EPSG\",\"2057\"],"
+				+ "AXIS[\"Easting\",EAST],AXIS[\"Northing\",NORTH]]";
+
+		crs = CRSReader.read(text, true);
+
+		expectedText = "PROJCRS[\"Rassadiran / Nakhl e Taqi\",BASEGEOGCRS[\"Rassadiran\","
+				+ "DATUM[\"Rassadiran\",ELLIPSOID[\"International 1924\",6378388.0,297.0,"
+				+ "ID[\"EPSG\",7022]],ID[\"EPSG\",6153]],"
+				+ "PRIMEM[\"Greenwich\",0.0,ID[\"EPSG\",8901]],UNIT[\"degree\",0.01745329251994328,ID[\"EPSG\",9122]],ID[\"EPSG\",4153]],"
+				+ "CONVERSION[\"Rassadiran / Nakhl e Taqi / Hotine_Oblique_Mercator\",METHOD[\"Hotine_Oblique_Mercator\"],"
+				+ "PARAMETER[\"latitude_of_center\",27.51882880555555],"
+				+ "PARAMETER[\"longitude_of_center\",52.60353916666667],"
+				+ "PARAMETER[\"azimuth\",0.5716611944444444],"
+				+ "PARAMETER[\"rectified_grid_angle\",0.5716611944444444],"
+				+ "PARAMETER[\"scale_factor\",0.999895934],"
+				+ "PARAMETER[\"false_easting\",658377.437],"
+				+ "PARAMETER[\"false_northing\",3044969.194],"
+				+ "PARAMETER[\"X-axis translation\",-133.63,LENGTHUNIT[\"metre\",1.0]],"
+				+ "PARAMETER[\"Y-axis translation\",-157.5,LENGTHUNIT[\"metre\",1.0]],"
+				+ "PARAMETER[\"Z-axis translation\",-158.62,LENGTHUNIT[\"metre\",1.0]]],"
+				+ "CS[ellipsoidal,2],AXIS[\"Easting\",east],AXIS[\"Northing\",north],"
+				+ "UNIT[\"metre\",1.0,ID[\"EPSG\",9001]],ID[\"EPSG\",2057]]";
+
+		assertEquals(expectedText, crs.toString());
+		assertEquals(expectedText, CRSWriter.write(crs));
+		assertEquals(WKTUtils.pretty(expectedText), CRSWriter.writePretty(crs));
+
+	}
+
+	/**
 	 * Test EPSG 3035
 	 * 
 	 * @throws IOException
