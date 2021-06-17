@@ -63,14 +63,14 @@ public enum OperationMethods {
 	/**
 	 * Hotine Oblique Mercator (variant A)
 	 */
-	HOTLINE_OBLIQUE_MERCATOR_A(9812, "Hotine Oblique Mercator (variant A)",
+	HOTINE_OBLIQUE_MERCATOR_A(9812, "Hotine Oblique Mercator (variant A)",
 			OperationType.MAP_PROJECTION, "Rectified skew orthomorphic", 8811,
 			8812, 8813, 8814, 8815, 8806, 8807),
 
 	/**
 	 * Hotine Oblique Mercator (variant B)
 	 */
-	HOTLINE_OBLIQUE_MERCATOR_B(9815, "Hotine Oblique Mercator (variant B)",
+	HOTINE_OBLIQUE_MERCATOR_B(9815, "Hotine Oblique Mercator (variant B)",
 			OperationType.MAP_PROJECTION, "Rectified skew orthomorphic", 8811,
 			8812, 8813, 8814, 8815, 8816, 8817),
 
