@@ -73,8 +73,9 @@ public enum OperationMethods {
 	 * Hotine Oblique Mercator (variant B)
 	 */
 	HOTINE_OBLIQUE_MERCATOR_B(9815, "Hotine Oblique Mercator (variant B)",
-			OperationType.MAP_PROJECTION, "Rectified skew orthomorphic", 8811,
-			8812, 8813, 8814, 8815, 8816, 8817),
+			OperationType.MAP_PROJECTION,
+			new String[] { "Rectified skew orthomorphic", "Oblique Mercator" },
+			8811, 8812, 8813, 8814, 8815, 8816, 8817),
 
 	/**
 	 * Krovak
