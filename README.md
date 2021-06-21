@@ -21,7 +21,97 @@ View the latest [Javadoc](http://ngageoint.github.io/coordinate-reference-system
 
 ```java
 
-// TODO
+// String wkt = ...
+
+CRS crs = CRSReader.read(wkt);
+
+CRSType type = crs.getType();
+CategoryType category = crs.getCategoryType();
+
+String text = CRSWriter.write(crs);
+String prettyText = CRSWriter.writePretty(crs);
+
+switch (category) {
+
+case CRS:
+
+  CoordinateReferenceSystem coordRefSys = (CoordinateReferenceSystem) crs;
+
+  switch (type) {
+  case BOUND:
+    BoundCoordinateReferenceSystem bound = (BoundCoordinateReferenceSystem) coordRefSys;
+    // ...
+    break;
+  case COMPOUND:
+    CompoundCoordinateReferenceSystem compound = (CompoundCoordinateReferenceSystem) coordRefSys;
+    // ...
+    break;
+  case DERIVED:
+    DerivedCoordinateReferenceSystem derived = (DerivedCoordinateReferenceSystem) coordRefSys;
+    // ...
+    break;
+  case ENGINEERING:
+    EngineeringCoordinateReferenceSystem engineering = (EngineeringCoordinateReferenceSystem) coordRefSys;
+    // ...
+    break;
+  case GEODETIC:
+  case GEOGRAPHIC:
+    GeoCoordinateReferenceSystem geo = (GeoCoordinateReferenceSystem) coordRefSys;
+    // ...
+    break;
+  case PARAMETRIC:
+    ParametricCoordinateReferenceSystem parametric = (ParametricCoordinateReferenceSystem) coordRefSys;
+    // ...
+    break;
+  case PROJECTED:
+    ProjectedCoordinateReferenceSystem projected = (ProjectedCoordinateReferenceSystem) coordRefSys;
+    // ...
+    break;
+  case TEMPORAL:
+    TemporalCoordinateReferenceSystem temporal = (TemporalCoordinateReferenceSystem) coordRefSys;
+    // ...
+    break;
+  case VERTICAL:
+    VerticalCoordinateReferenceSystem vertical = (VerticalCoordinateReferenceSystem) coordRefSys;
+    // ...
+    break;
+  default:
+  }
+
+  // ...
+  break;
+
+case METADATA:
+
+  CoordinateMetadata metadata = (CoordinateMetadata) crs;
+
+  // ...
+  break;
+
+case OPERATION:
+
+  Operation operation = (Operation) crs;
+
+  switch (type) {
+  case CONCATENATED_OPERATION:
+    ConcatenatedOperation concatenatedOperation = (ConcatenatedOperation) operation;
+    // ...
+    break;
+  case COORDINATE_OPERATION:
+    CoordinateOperation coordinateOperation = (CoordinateOperation) operation;
+    // ...
+    break;
+  case POINT_MOTION_OPERATION:
+    PointMotionOperation pointMotionOperation = (PointMotionOperation) operation;
+    // ...
+    break;
+  default:
+  }
+
+  // ...
+  break;
+
+}
 
 ```
 
