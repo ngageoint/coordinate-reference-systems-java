@@ -13,6 +13,8 @@ Software source code previously released under an open source license and then m
 
 [Coordinate Reference Systems](http://ngageoint.github.io/coordinate-reference-systems-java/) is a Java library implementation of OGC's 'Geographic information — Well-known text representation of coordinate reference systems' ([18-010r7](http://docs.opengeospatial.org/is/18-010r7/18-010r7.html)) specification.
 
+For projection conversions between coordinates, see [Projections](https://ngageoint.github.io/projections-java/) (backed by [proj4j](https://github.com/locationtech/proj4j)).
+
 ### Usage ###
 
 View the latest [Javadoc](http://ngageoint.github.io/coordinate-reference-systems-java/docs/api/)
