@@ -4,6 +4,10 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
+## 1.0.1 (TBD)
+
+* TBD
+
 ## [1.0.0](https://github.com/ngageoint/coordinate-reference-systems-java/releases/tag/1.0.0) (06-24-2021)
 
 * Initial Release
