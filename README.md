@@ -17,8 +17,6 @@ Software source code previously released under an open source license and then m
 
 View the latest [Javadoc](http://ngageoint.github.io/coordinate-reference-systems-java/docs/api/)
 
-#### Transform ####
-
 ```java
 
 // String wkt = ...
