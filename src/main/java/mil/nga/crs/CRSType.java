@@ -33,14 +33,14 @@ public enum CRSType {
 	COORDINATE_OPERATION(CategoryType.OPERATION),
 
 	/**
-	 * Engineering
-	 */
-	ENGINEERING(CategoryType.CRS),
-
-	/**
 	 * Derived
 	 */
 	DERIVED(CategoryType.CRS),
+
+	/**
+	 * Engineering
+	 */
+	ENGINEERING(CategoryType.CRS),
 
 	/**
 	 * Geodetic
