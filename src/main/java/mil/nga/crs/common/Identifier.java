@@ -189,7 +189,7 @@ public class Identifier {
 	}
 
 	/**
-	 * Has a, id uri
+	 * Has an id uri
 	 * 
 	 * @return true if has id uri
 	 */

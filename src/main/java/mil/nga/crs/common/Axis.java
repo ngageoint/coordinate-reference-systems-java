@@ -51,7 +51,7 @@ public class Axis implements Identifiable {
 	private Double bearing = null;
 
 	/**
-	 * 
+	 * Order
 	 */
 	private Integer order = null;
 

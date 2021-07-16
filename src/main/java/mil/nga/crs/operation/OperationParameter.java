@@ -40,7 +40,7 @@ public class OperationParameter implements Identifiable {
 	private Unit unit;
 
 	/**
-	 * Name
+	 * File Name
 	 */
 	private String fileName = null;
 
