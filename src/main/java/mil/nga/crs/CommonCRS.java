@@ -11,7 +11,7 @@ import mil.nga.crs.common.Usage;
  * 
  * @author osbornb
  */
-public class CommonCRS extends CRS {
+public abstract class CommonCRS extends CRS {
 
 	/**
 	 * Name
