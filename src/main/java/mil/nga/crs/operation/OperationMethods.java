@@ -280,7 +280,7 @@ public enum OperationMethods {
 	private final Set<String> aliases = new LinkedHashSet<>();
 
 	/**
-	 * Parameter code
+	 * Method code
 	 */
 	private final int code;
 
