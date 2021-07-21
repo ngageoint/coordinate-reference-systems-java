@@ -1,7 +1,6 @@
 package mil.nga.crs.vertical;
 
 import java.util.List;
-import java.util.logging.Logger;
 
 import mil.nga.crs.common.DatumEnsemble;
 import mil.nga.crs.common.DatumEnsembleMember;
@@ -12,12 +11,6 @@ import mil.nga.crs.common.DatumEnsembleMember;
  * @author osbornb
  */
 public class VerticalDatumEnsemble extends DatumEnsemble {
-
-	/**
-	 * Logger
-	 */
-	private static final Logger logger = Logger
-			.getLogger(VerticalDatumEnsemble.class.getName());
 
 	/**
 	 * Constructor

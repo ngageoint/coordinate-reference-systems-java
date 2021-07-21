@@ -1,7 +1,5 @@
 package mil.nga.crs.geo;
 
-import java.util.logging.Logger;
-
 import mil.nga.crs.CRSType;
 import mil.nga.crs.common.ReferenceFrame;
 
@@ -11,12 +9,6 @@ import mil.nga.crs.common.ReferenceFrame;
  * @author osbornb
  */
 public class GeoReferenceFrame extends ReferenceFrame implements GeoDatum {
-
-	/**
-	 * Logger
-	 */
-	private static final Logger logger = Logger
-			.getLogger(GeoReferenceFrame.class.getName());
 
 	/**
 	 * Ellipsoid

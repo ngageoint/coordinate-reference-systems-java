@@ -1,7 +1,5 @@
 package mil.nga.crs.vertical;
 
-import java.util.logging.Logger;
-
 import mil.nga.crs.CRSType;
 import mil.nga.crs.common.ReferenceFrame;
 
@@ -11,12 +9,6 @@ import mil.nga.crs.common.ReferenceFrame;
  * @author osbornb
  */
 public class VerticalReferenceFrame extends ReferenceFrame {
-
-	/**
-	 * Logger
-	 */
-	private static final Logger logger = Logger
-			.getLogger(VerticalReferenceFrame.class.getName());
 
 	/**
 	 * Constructor
