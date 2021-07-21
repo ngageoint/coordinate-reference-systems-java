@@ -169,7 +169,7 @@ public class TemporalDatum implements Identifiable {
 	 * @param originDateTime
 	 *            origin date time
 	 */
-	public void setStartDateTime(DateTime originDateTime) {
+	public void setOriginDateTime(DateTime originDateTime) {
 		this.originDateTime = originDateTime;
 		this.origin = originDateTime.toString();
 	}
