@@ -1,13 +1,10 @@
 package mil.nga.crs.vertical;
 
-import java.io.IOException;
 import java.util.List;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import mil.nga.crs.common.DatumEnsemble;
 import mil.nga.crs.common.DatumEnsembleMember;
-import mil.nga.crs.wkt.CRSWriter;
 
 /**
  * Vertical Datum Ensemble
@@ -79,26 +76,6 @@ public class VerticalDatumEnsemble extends DatumEnsemble {
 		if (getClass() != obj.getClass())
 			return false;
 		return true;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public String toString() {
-		String value = null;
-		CRSWriter writer = new CRSWriter();
-		try {
-			writer.write(this);
-			value = writer.toString();
-		} catch (IOException e) {
-			logger.log(Level.WARNING,
-					"Failed to write vertical datum ensemble as a string", e);
-			value = super.toString();
-		} finally {
-			writer.close();
-		}
-		return value;
 	}
 
 }
