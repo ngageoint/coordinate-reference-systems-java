@@ -472,7 +472,7 @@ public enum CRSKeyword {
 	}
 
 	/**
-	 * Get the keyword type from the keyword
+	 * Get the required keyword type from the keyword
 	 * 
 	 * @param keyword
 	 *            CRS keyword
@@ -504,7 +504,7 @@ public enum CRSKeyword {
 	}
 
 	/**
-	 * Get the keyword types from the keyword
+	 * Get the required keyword types from the keyword
 	 * 
 	 * @param keyword
 	 *            CRS keyword
