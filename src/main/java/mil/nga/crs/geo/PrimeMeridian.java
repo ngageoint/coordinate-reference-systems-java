@@ -15,7 +15,6 @@ import mil.nga.crs.wkt.CRSWriter;
  * Prime Meridian
  * 
  * @author osbornb
- *
  */
 public class PrimeMeridian implements Identifiable {
 
