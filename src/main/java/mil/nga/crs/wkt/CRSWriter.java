@@ -398,7 +398,7 @@ public class CRSWriter implements Closeable {
 	}
 
 	/**
-	 * Write a number or quoted text if not a number
+	 * Write a number
 	 * 
 	 * @param number
 	 *            number
