@@ -766,7 +766,7 @@ public class CRSWriter implements Closeable {
 		default:
 			throw new CRSException(
 					"Invalid Derived Geodetic or Geographic Coordinate Reference System Type: "
-							+ crs.getType());
+							+ crs.getBaseType());
 		}
 
 		GeoCoordinateReferenceSystem baseCrs = (GeoCoordinateReferenceSystem) crs
@@ -853,7 +853,7 @@ public class CRSWriter implements Closeable {
 		default:
 			throw new CRSException(
 					"Invalid Derived Projected Geodetic or Geographic Coordinate Reference System Type: "
-							+ crs.getType());
+							+ projectedCrs.getBaseType());
 		}
 
 		writeSeparator();
