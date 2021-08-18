@@ -1344,8 +1344,6 @@ public class CRSReader implements Closeable {
 	/**
 	 * Check if the keyword is next following an immediate next separator
 	 * 
-	 * @param keyword
-	 *            keyword
 	 * @return true if next
 	 * @throws IOException
 	 *             upon failure to read
