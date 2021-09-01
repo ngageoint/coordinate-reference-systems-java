@@ -12,7 +12,7 @@ public class Units {
 	/**
 	 * Micrometre unit name
 	 */
-	public static final String MICROMETRE = "metre";
+	public static final String MICROMETRE = "micrometre";
 
 	/**
 	 * Millimetre unit name
