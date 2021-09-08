@@ -22,7 +22,8 @@ public enum OperationMethods {
 	 * Albers Equal Area
 	 */
 	ALBERS_EQUAL_AREA(9822, "Albers Equal Area", OperationType.MAP_PROJECTION,
-			"Albers", 8821, 8822, 8823, 8824, 8826, 8827),
+			new String[] { "Albers", "Albers Conic Equal Area" }, 8821, 8822,
+			8823, 8824, 8826, 8827),
 
 	/**
 	 * American Polyconic
