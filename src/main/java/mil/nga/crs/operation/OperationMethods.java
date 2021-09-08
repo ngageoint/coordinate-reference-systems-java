@@ -88,8 +88,9 @@ public enum OperationMethods {
 	 */
 	LAMBERT_AZIMUTHAL_EQUAL_AREA(9820, "Lambert Azimuthal Equal Area",
 			OperationType.MAP_PROJECTION,
-			new String[] { "Lambert Equal Area", "LAEA" }, 8801, 8802, 8806,
-			8807),
+			new String[] { "Lambert Equal Area", "LAEA",
+					"Lambert Azimuthal Equal Area (Spherical)" },
+			8801, 8802, 8806, 8807),
 
 	/**
 	 * Lambert Conic Conformal (1SP)
