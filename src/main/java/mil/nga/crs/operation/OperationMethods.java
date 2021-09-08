@@ -35,7 +35,8 @@ public enum OperationMethods {
 	 * Cassini-Soldner
 	 */
 	CASSINI_SOLDNER(9806, "Cassini-Soldner", OperationType.MAP_PROJECTION,
-			"Cassini", 8801, 8802, 8806, 8807),
+			new String[] { "Cassini", "Cassini Soldner" }, 8801, 8802, 8806,
+			8807),
 
 	/**
 	 * Coordinate Frame rotation (geocentric domain)
