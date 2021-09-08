@@ -50,8 +50,9 @@ public enum OperationMethods {
 	 * Equidistant Cylindrical (Spherical)
 	 */
 	EQUIDISTANT_CYLINDRICAL(9823, "Equidistant Cylindrical (Spherical)",
-			OperationType.MAP_PROJECTION, "Equidistant Cylindrical", 8801, 8802,
-			8806, 8807),
+			OperationType.MAP_PROJECTION,
+			new String[] { "Equidistant Cylindrical", "Equirectangular" }, 8801,
+			8802, 8806, 8807),
 
 	/**
 	 * Geocentric translations (geocentric domain)
@@ -115,7 +116,9 @@ public enum OperationMethods {
 	 */
 	LAMBERT_CYLINDRICAL_EQUAL_AREA(9834,
 			"Lambert Cylindrical Equal Area (Spherical)",
-			OperationType.MAP_PROJECTION, "Lambert Cylindrical Equal Area",
+			OperationType.MAP_PROJECTION,
+			new String[] { "Lambert Cylindrical Equal Area",
+					"Cylindrical Equal Area" },
 			8823, 8802, 8806, 8807),
 
 	/**
