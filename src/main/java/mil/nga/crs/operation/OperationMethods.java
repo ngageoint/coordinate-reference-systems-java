@@ -77,7 +77,8 @@ public enum OperationMethods {
 	 */
 	HOTINE_OBLIQUE_MERCATOR_B(9815, "Hotine Oblique Mercator (variant B)",
 			OperationType.MAP_PROJECTION,
-			new String[] { "Rectified skew orthomorphic", "Oblique Mercator" },
+			new String[] { "Rectified skew orthomorphic", "Oblique Mercator",
+					"Hotine Oblique Mercator Azimuth Center" },
 			8811, 8812, 8813, 8814, 8815, 8816, 8817),
 
 	/**
