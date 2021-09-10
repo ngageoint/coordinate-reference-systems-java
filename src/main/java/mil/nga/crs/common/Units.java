@@ -40,6 +40,11 @@ public class Units {
 	public static final String US_SURVEY_FOOT = "US survey foot";
 
 	/**
+	 * Foot unit name
+	 */
+	public static final String FOOT = "foot";
+
+	/**
 	 * Microradian unit name
 	 */
 	public static final String MICRORADIAN = "microradian";
@@ -196,6 +201,15 @@ public class Units {
 	 */
 	public static Unit getUSSurveyFoot() {
 		return new Unit(UnitType.LENGTHUNIT, US_SURVEY_FOOT, 0.304800609601219);
+	}
+
+	/**
+	 * Get a foot unit
+	 * 
+	 * @return foot unit
+	 */
+	public static Unit getFoot() {
+		return new Unit(UnitType.LENGTHUNIT, FOOT, 0.3048);
 	}
 
 	/**
