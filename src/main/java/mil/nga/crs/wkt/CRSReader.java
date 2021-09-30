@@ -4114,28 +4114,28 @@ public class CRSReader implements Closeable {
 
 			method.addParameter(new OperationParameter(
 					OperationParameters.X_AXIS_TRANSLATION, transform[0],
-					Units.getMetre()));
+					Units.METRE.createUnit()));
 			method.addParameter(new OperationParameter(
 					OperationParameters.Y_AXIS_TRANSLATION, transform[1],
-					Units.getMetre()));
+					Units.METRE.createUnit()));
 			method.addParameter(new OperationParameter(
 					OperationParameters.Z_AXIS_TRANSLATION, transform[2],
-					Units.getMetre()));
+					Units.METRE.createUnit()));
 
 			if (param7) {
 
 				method.addParameter(new OperationParameter(
 						OperationParameters.X_AXIS_ROTATION, transform[3],
-						Units.getArcSecond()));
+						Units.ARC_SECOND.createUnit()));
 				method.addParameter(new OperationParameter(
 						OperationParameters.Y_AXIS_ROTATION, transform[4],
-						Units.getArcSecond()));
+						Units.ARC_SECOND.createUnit()));
 				method.addParameter(new OperationParameter(
 						OperationParameters.Z_AXIS_ROTATION, transform[5],
-						Units.getArcSecond()));
+						Units.ARC_SECOND.createUnit()));
 				method.addParameter(new OperationParameter(
 						OperationParameters.SCALE_DIFFERENCE, transform[6],
-						Units.getPartsPerMillion()));
+						Units.PARTS_PER_MILLION.createUnit()));
 			}
 
 		}

@@ -1,5 +1,8 @@
 package mil.nga.crs.common;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import mil.nga.crs.CRSException;
 
 /**
@@ -7,399 +10,275 @@ import mil.nga.crs.CRSException;
  * 
  * @author osbornb
  */
-public class Units {
+public enum Units {
 
 	/**
-	 * Micrometre unit name
+	 * Micrometre unit
 	 */
-	public static final String MICROMETRE = "micrometre";
+	MICROMETRE(UnitType.LENGTHUNIT, "micrometre", 0.000001),
 
 	/**
-	 * Millimetre unit name
+	 * Millimetre unit
 	 */
-	public static final String MILLIMETRE = "millimetre";
+	MILLIMETRE(UnitType.LENGTHUNIT, "millimetre", 0.001),
 
 	/**
-	 * Metre unit name
+	 * Metre unit
 	 */
-	public static final String METRE = "metre";
+	METRE(UnitType.LENGTHUNIT, "metre", 1.0),
 
 	/**
-	 * Kilometre unit name
+	 * Kilometre unit
 	 */
-	public static final String KILOMETRE = "kilometre";
+	KILOMETRE(UnitType.LENGTHUNIT, "kilometre", 1000.0),
 
 	/**
-	 * German legal metre unit name
+	 * German legal metre unit
 	 */
-	public static final String GERMAN_LEGAL_METRE = "German legal metre";
+	GERMAN_LEGAL_METRE(UnitType.LENGTHUNIT, "German legal metre", 1.0000135965),
 
 	/**
-	 * US survey foot unit name
+	 * US survey foot unit
 	 */
-	public static final String US_SURVEY_FOOT = "US survey foot";
+	US_SURVEY_FOOT(UnitType.LENGTHUNIT, "US survey foot", 0.304800609601219),
 
 	/**
-	 * Foot unit name
+	 * Foot unit
 	 */
-	public static final String FOOT = "foot";
+	FOOT(UnitType.LENGTHUNIT, "foot", 0.3048),
 
 	/**
-	 * Microradian unit name
+	 * Microradian unit
 	 */
-	public static final String MICRORADIAN = "microradian";
+	MICRORADIAN(UnitType.ANGLEUNIT, "microradian", 0.000001),
 
 	/**
-	 * Milliradian unit name
+	 * Milliradian unit
 	 */
-	public static final String MILLIRADIAN = "milliradian";
+	MILLIRADIAN(UnitType.ANGLEUNIT, "milliradian", 0.001),
 
 	/**
-	 * Radian unit name
+	 * Radian unit
 	 */
-	public static final String RADIAN = "radian";
+	RADIAN(UnitType.ANGLEUNIT, "radian", 1.0),
 
 	/**
-	 * Arc-second unit name
+	 * Arc-second unit
 	 */
-	public static final String ARC_SECOND = "arc-second";
+	ARC_SECOND(UnitType.ANGLEUNIT, "arc-second",
+			0.00000484813681109535993589914102357),
 
 	/**
-	 * Arc-minute unit name
+	 * Arc-minute unit
 	 */
-	public static final String ARC_MINUTE = "arc-minute";
+	ARC_MINUTE(UnitType.ANGLEUNIT, "arc-minute", 0.0002908882086657216),
 
 	/**
-	 * Degree unit name
+	 * Degree unit
 	 */
-	public static final String DEGREE = "degree";
+	DEGREE(UnitType.ANGLEUNIT, "degree", 0.017453292519943295),
 
 	/**
-	 * Grad unit name
+	 * Grad unit
 	 */
-	public static final String GRAD = "grad";
+	GRAD(UnitType.ANGLEUNIT, "grad", 0.015707963267949),
 
 	/**
-	 * Unity unit name
+	 * Unity unit
 	 */
-	public static final String UNITY = "unity";
+	UNITY(UnitType.SCALEUNIT, "unity", 1.0),
 
 	/**
-	 * Bin unit name
+	 * Bin unit
 	 */
-	public static final String BIN = "bin";
+	BIN(UnitType.SCALEUNIT, "bin", 1.0),
 
 	/**
-	 * Parts per million unit name
+	 * Parts per million unit
 	 */
-	public static final String PARTS_PER_MILLION = "parts per million";
+	PARTS_PER_MILLION(UnitType.SCALEUNIT, "parts per million", 0.000001),
 
 	/**
-	 * Pascal unit name
+	 * Pascal unit
 	 */
-	public static final String PASCAL = "pascal";
+	PASCAL(UnitType.PARAMETRICUNIT, "pascal", 1.0),
 
 	/**
-	 * Hectopascal unit name
+	 * Hectopascal unit
 	 */
-	public static final String HECTOPASCAL = "hectopascal";
+	HECTOPASCAL(UnitType.PARAMETRICUNIT, "hectopascal", 100.0),
 
 	/**
-	 * Microsecond unit name
+	 * Microsecond unit
 	 */
-	public static final String MICROSECOND = "microsecond";
+	MICROSECOND(UnitType.TIMEUNIT, "microsecond", 0.000001),
 
 	/**
-	 * Millisecond unit name
+	 * Millisecond unit
 	 */
-	public static final String MILLISECOND = "millisecond";
+	MILLISECOND(UnitType.TIMEUNIT, "millisecond", 0.001),
 
 	/**
-	 * Second unit name
+	 * Second unit
 	 */
-	public static final String SECOND = "second";
+	SECOND(UnitType.TIMEUNIT, "second", 1.0),
 
 	/**
-	 * Minute unit name
+	 * Minute unit
 	 */
-	public static final String MINUTE = "minute";
+	MINUTE(UnitType.TIMEUNIT, "minute", 60.0),
 
 	/**
-	 * Hour unit name
+	 * Hour unit
 	 */
-	public static final String HOUR = "hour";
+	HOUR(UnitType.TIMEUNIT, "hour", 3600.0),
 
 	/**
-	 * Day unit name
+	 * Day unit
 	 */
-	public static final String DAY = "day";
+	DAY(UnitType.TIMEUNIT, "day", 86400.0),
 
 	/**
-	 * Year unit name
+	 * Year unit
 	 */
-	public static final String YEAR = "year";
+	YEAR(UnitType.TIMEUNIT, "year", 31557600.0),
 
 	/**
-	 * Calendar second unit name
+	 * Calendar second unit
 	 */
-	public static final String CALENDAR_SECOND = "calendar second";
+	CALENDAR_SECOND(UnitType.TIMEUNIT, "calendar second"),
 
 	/**
-	 * Calendar month unit name
+	 * Calendar month unit
 	 */
-	public static final String CALENDAR_MONTH = "calendar month";
+	CALENDAR_MONTH(UnitType.TIMEUNIT, "calendar month");
 
 	/**
-	 * Get a micrometre unit
-	 * 
-	 * @return micrometre unit
+	 * Name to units type mapping
 	 */
-	public static Unit getMicrometre() {
-		return new Unit(UnitType.LENGTHUNIT, MICROMETRE, 0.000001);
+	private static final Map<String, Units> nameTypes = new HashMap<>();
+	static {
+		for (Units type : values()) {
+			nameTypes.put(type.getName().toLowerCase(), type);
+		}
 	}
 
 	/**
-	 * Get a millimetre unit
-	 * 
-	 * @return millimetre unit
+	 * Unit Type
 	 */
-	public static Unit getMillimetre() {
-		return new Unit(UnitType.LENGTHUNIT, MILLIMETRE, 0.001);
+	private final UnitType type;
+
+	/**
+	 * Name
+	 */
+	private final String name;
+
+	/**
+	 * Conversion Factor
+	 */
+	private final Double conversionFactor;
+
+	/**
+	 * Constructor
+	 * 
+	 * @param type
+	 *            unit type
+	 * @param name
+	 *            name
+	 */
+	private Units(UnitType type, String name) {
+		this.type = type;
+		this.name = name;
+		this.conversionFactor = null;
 	}
 
 	/**
-	 * Get a metre unit
+	 * Constructor
 	 * 
-	 * @return metre unit
+	 * @param type
+	 *            unit type
+	 * @param name
+	 *            name
+	 * @param conversionFactor
+	 *            conversion factor
 	 */
-	public static Unit getMetre() {
-		return new Unit(UnitType.LENGTHUNIT, METRE, 1.0);
+	private Units(UnitType type, String name, double conversionFactor) {
+		this.type = type;
+		this.name = name;
+		this.conversionFactor = conversionFactor;
 	}
 
 	/**
-	 * Get a kilometre unit
+	 * Get the type
 	 * 
-	 * @return kilometre unit
+	 * @return type
 	 */
-	public static Unit getKilometre() {
-		return new Unit(UnitType.LENGTHUNIT, KILOMETRE, 1000.0);
+	public UnitType getType() {
+		return type;
 	}
 
 	/**
-	 * Get a German legal metre unit
+	 * Get the name
 	 * 
-	 * @return German legal metre unit
+	 * @return name
 	 */
-	public static Unit getGermanLegalMetre() {
-		return new Unit(UnitType.LENGTHUNIT, GERMAN_LEGAL_METRE, 1.0000135965);
+	public String getName() {
+		return name;
 	}
 
 	/**
-	 * Get a US survey foot unit
+	 * Has conversion factor
 	 * 
-	 * @return US survey foot unit
+	 * @return true if has conversion factor
 	 */
-	public static Unit getUSSurveyFoot() {
-		return new Unit(UnitType.LENGTHUNIT, US_SURVEY_FOOT, 0.304800609601219);
+	public boolean hasConversionFactor() {
+		return conversionFactor != null;
 	}
 
 	/**
-	 * Get a foot unit
+	 * Get the conversion factor
 	 * 
-	 * @return foot unit
+	 * @return conversion factor
 	 */
-	public static Unit getFoot() {
-		return new Unit(UnitType.LENGTHUNIT, FOOT, 0.3048);
+	public Double getConversionFactor() {
+		return conversionFactor;
 	}
 
 	/**
-	 * Get a microradian unit
+	 * Create a unit
 	 * 
-	 * @return microradian unit
+	 * @return new unit
 	 */
-	public static Unit getMicroradian() {
-		return new Unit(UnitType.ANGLEUNIT, MICRORADIAN, 0.000001);
+	public Unit createUnit() {
+		Unit unit = null;
+		if (hasConversionFactor()) {
+			unit = new Unit(type, name, conversionFactor);
+		} else {
+			unit = new Unit(type, name);
+		}
+		return unit;
 	}
 
 	/**
-	 * Get a milliradian unit
+	 * Get the units type from the name
 	 * 
-	 * @return milliradian unit
+	 * @param name
+	 *            unit name
+	 * @return units type
 	 */
-	public static Unit getMilliradian() {
-		return new Unit(UnitType.ANGLEUNIT, MILLIRADIAN, 0.001);
+	public static Units getType(String name) {
+		return nameTypes.get(name.toLowerCase());
 	}
 
 	/**
-	 * Get a radian unit
+	 * Get the units type from the unit
 	 * 
-	 * @return radian unit
+	 * @param unit
+	 *            unit
+	 * @return units type
 	 */
-	public static Unit getRadian() {
-		return new Unit(UnitType.ANGLEUNIT, RADIAN, 1.0);
-	}
-
-	/**
-	 * Get an arc-second unit
-	 * 
-	 * @return arc-second unit
-	 */
-	public static Unit getArcSecond() {
-		return new Unit(UnitType.ANGLEUNIT, ARC_SECOND,
-				0.00000484813681109535993589914102357);
-	}
-
-	/**
-	 * Get an arc-minute unit
-	 * 
-	 * @return arc-minute unit
-	 */
-	public static Unit getArcMinute() {
-		return new Unit(UnitType.ANGLEUNIT, ARC_MINUTE, 0.0002908882086657216);
-	}
-
-	/**
-	 * Get a degree unit
-	 * 
-	 * @return degree unit
-	 */
-	public static Unit getDegree() {
-		return new Unit(UnitType.ANGLEUNIT, DEGREE, 0.017453292519943295);
-	}
-
-	/**
-	 * Get a grad unit
-	 * 
-	 * @return grad unit
-	 */
-	public static Unit getGrad() {
-		return new Unit(UnitType.ANGLEUNIT, GRAD, 0.015707963267949);
-	}
-
-	/**
-	 * Get a unity unit
-	 * 
-	 * @return unity unit
-	 */
-	public static Unit getUnity() {
-		return new Unit(UnitType.SCALEUNIT, UNITY, 1.0);
-	}
-
-	/**
-	 * Get a bin unit
-	 * 
-	 * @return bin unit
-	 */
-	public static Unit getBin() {
-		return new Unit(UnitType.SCALEUNIT, BIN, 1.0);
-	}
-
-	/**
-	 * Get a parts per million unit
-	 * 
-	 * @return parts per million unit
-	 */
-	public static Unit getPartsPerMillion() {
-		return new Unit(UnitType.SCALEUNIT, PARTS_PER_MILLION, 0.000001);
-	}
-
-	/**
-	 * Get a pascal unit
-	 * 
-	 * @return pascal unit
-	 */
-	public static Unit getPascal() {
-		return new Unit(UnitType.PARAMETRICUNIT, PASCAL, 1.0);
-	}
-
-	/**
-	 * Get a hectopascal unit
-	 * 
-	 * @return hectopascal unit
-	 */
-	public static Unit getHectopascal() {
-		return new Unit(UnitType.PARAMETRICUNIT, HECTOPASCAL, 100.0);
-	}
-
-	/**
-	 * Get a microsecond unit
-	 * 
-	 * @return microsecond unit
-	 */
-	public static Unit getMicrosecond() {
-		return new Unit(UnitType.TIMEUNIT, MICROSECOND, 0.000001);
-	}
-
-	/**
-	 * Get a millisecond unit
-	 * 
-	 * @return millisecond unit
-	 */
-	public static Unit getMillisecond() {
-		return new Unit(UnitType.TIMEUNIT, MILLISECOND, 0.001);
-	}
-
-	/**
-	 * Get a second unit
-	 * 
-	 * @return second unit
-	 */
-	public static Unit getSecond() {
-		return new Unit(UnitType.TIMEUNIT, SECOND, 1.0);
-	}
-
-	/**
-	 * Get a minute unit
-	 * 
-	 * @return minute unit
-	 */
-	public static Unit getMinute() {
-		return new Unit(UnitType.TIMEUNIT, MINUTE, 60.0);
-	}
-
-	/**
-	 * Get a hour unit
-	 * 
-	 * @return hour unit
-	 */
-	public static Unit getHour() {
-		return new Unit(UnitType.TIMEUNIT, HOUR, 3600.0);
-	}
-
-	/**
-	 * Get a day unit
-	 * 
-	 * @return day unit
-	 */
-	public static Unit getDay() {
-		return new Unit(UnitType.TIMEUNIT, DAY, 86400.0);
-	}
-
-	/**
-	 * Get a year unit
-	 * 
-	 * @return year unit
-	 */
-	public static Unit getYear() {
-		return new Unit(UnitType.TIMEUNIT, YEAR, 31557600.0);
-	}
-
-	/**
-	 * Get a calendar second unit
-	 * 
-	 * @return calendar second unit
-	 */
-	public static Unit getCalendarSecond() {
-		return new Unit(UnitType.TIMEUNIT, CALENDAR_SECOND);
-	}
-
-	/**
-	 * Get a calendar month unit
-	 * 
-	 * @return calendar month unit
-	 */
-	public static Unit getCalendarMonth() {
-		return new Unit(UnitType.TIMEUNIT, CALENDAR_MONTH);
+	public static Units getType(Unit unit) {
+		return getType(unit.getName());
 	}
 
 	/**
@@ -409,21 +288,40 @@ public class Units {
 	 *            unit type
 	 * @return default unit or null if no default
 	 */
-	public static Unit getDefaultUnit(UnitType type) {
+	public static Units getDefaultUnit(UnitType type) {
 
-		Unit defaultUnit = null;
+		Units defaultUnit = null;
 
 		switch (type) {
 		case LENGTHUNIT:
-			defaultUnit = getMetre();
+			defaultUnit = METRE;
 			break;
 		case ANGLEUNIT:
-			defaultUnit = getDegree();
+			defaultUnit = DEGREE;
 			break;
 		case SCALEUNIT:
-			defaultUnit = getUnity();
+			defaultUnit = UNITY;
 			break;
 		default:
+		}
+
+		return defaultUnit;
+	}
+
+	/**
+	 * Create the default unit for the unit type
+	 * 
+	 * @param type
+	 *            unit type
+	 * @return default unit or null if no default
+	 */
+	public static Unit createDefaultUnit(UnitType type) {
+
+		Unit defaultUnit = null;
+
+		Units defaultUnits = getDefaultUnit(type);
+		if (defaultUnits != null) {
+			defaultUnit = defaultUnits.createUnit();
 		}
 
 		return defaultUnit;
