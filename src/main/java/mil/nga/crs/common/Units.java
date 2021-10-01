@@ -266,7 +266,7 @@ public enum Units {
 	 *            unit name
 	 * @return units type
 	 */
-	public static Units getType(String name) {
+	public static Units fromName(String name) {
 		return nameTypes.get(name.toLowerCase());
 	}
 
@@ -277,8 +277,8 @@ public enum Units {
 	 *            unit
 	 * @return units type
 	 */
-	public static Units getType(Unit unit) {
-		return getType(unit.getName());
+	public static Units fromUnit(Unit unit) {
+		return fromName(unit.getName());
 	}
 
 	/**

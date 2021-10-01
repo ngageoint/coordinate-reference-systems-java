@@ -14,9 +14,12 @@ import mil.nga.crs.common.Unit;
 import mil.nga.crs.common.UnitType;
 import mil.nga.crs.common.Units;
 import mil.nga.crs.geo.Ellipsoid;
+import mil.nga.crs.geo.Ellipsoids;
 import mil.nga.crs.geo.GeoCoordinateReferenceSystem;
 import mil.nga.crs.geo.GeoDatum;
+import mil.nga.crs.geo.GeoDatums;
 import mil.nga.crs.geo.PrimeMeridian;
+import mil.nga.crs.geo.PrimeMeridians;
 import mil.nga.crs.geo.TriaxialEllipsoid;
 import mil.nga.crs.operation.OperationMethod;
 import mil.nga.crs.operation.OperationMethods;
@@ -660,7 +663,7 @@ public class ProjParser {
 			if (unit.getType() == UnitType.LENGTHUNIT
 					|| unit.getType() == UnitType.UNIT) {
 
-				Units type = Units.getType(unit);
+				Units type = Units.fromUnit(unit);
 				if (type != null) {
 
 					switch (type) {

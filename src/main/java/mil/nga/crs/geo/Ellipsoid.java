@@ -230,6 +230,23 @@ public class Ellipsoid implements Identifiable {
 	}
 
 	/**
+	 * Get the pole radius
+	 *
+	 * @return pole radius
+	 */
+	public double getPoleRadius() {
+		double poleRadius;
+		if (inverseFlattening != 0) {
+			double flattening = 1.0 / inverseFlattening;
+			double eccentricity2 = 2 * flattening - flattening * flattening;
+			poleRadius = semiMajorAxis * Math.sqrt(1.0 - eccentricity2);
+		} else {
+			poleRadius = semiMajorAxis;
+		}
+		return poleRadius;
+	}
+
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override
