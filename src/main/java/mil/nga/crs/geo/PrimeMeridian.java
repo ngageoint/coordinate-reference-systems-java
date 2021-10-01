@@ -27,12 +27,17 @@ public class PrimeMeridian implements Identifiable {
 	/**
 	 * Name
 	 */
-	private String name = null;;
+	private String name = null;
 
 	/**
 	 * International Reference Meridian longitude
 	 */
 	private double longitude;
+
+	/**
+	 * International Reference Meridian longitude Text
+	 */
+	private String longitudeText;
 
 	/**
 	 * International Reference Meridian longitude unit (angle)
@@ -60,6 +65,19 @@ public class PrimeMeridian implements Identifiable {
 	 *            International Reference Meridian longitude
 	 */
 	public PrimeMeridian(String name, double longitude) {
+		setName(name);
+		setLongitude(longitude);
+	}
+
+	/**
+	 * Constructor
+	 * 
+	 * @param name
+	 *            name
+	 * @param longitude
+	 *            International Reference Meridian longitude
+	 */
+	public PrimeMeridian(String name, String longitude) {
 		setName(name);
 		setLongitude(longitude);
 	}
@@ -93,6 +111,15 @@ public class PrimeMeridian implements Identifiable {
 	}
 
 	/**
+	 * Get the International Reference Meridian longitude text
+	 * 
+	 * @return International Reference Meridian longitude text
+	 */
+	public String getLongitudeText() {
+		return longitudeText;
+	}
+
+	/**
 	 * Set the International Reference Meridian longitude
 	 * 
 	 * @param longitude
@@ -100,6 +127,18 @@ public class PrimeMeridian implements Identifiable {
 	 */
 	public void setLongitude(double longitude) {
 		this.longitude = longitude;
+		this.longitudeText = String.valueOf(longitude);
+	}
+
+	/**
+	 * Set the International Reference Meridian longitude
+	 * 
+	 * @param longitude
+	 *            International Reference Meridian longitude
+	 */
+	public void setLongitude(String longitude) {
+		this.longitudeText = longitude;
+		this.longitude = Double.parseDouble(longitude);
 	}
 
 	/**

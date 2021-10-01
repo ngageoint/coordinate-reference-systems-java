@@ -37,6 +37,11 @@ public abstract class DatumEnsemble implements Identifiable {
 	private double accuracy;
 
 	/**
+	 * Accuracy (in meters) Text
+	 */
+	private String accuracyText;
+
+	/**
 	 * Identifiers
 	 */
 	private List<Identifier> identifiers = null;
@@ -70,6 +75,23 @@ public abstract class DatumEnsemble implements Identifiable {
 	 * 
 	 * @param name
 	 *            name
+	 * @param member
+	 *            member
+	 * @param accuracy
+	 *            accuracy
+	 */
+	public DatumEnsemble(String name, DatumEnsembleMember member,
+			String accuracy) {
+		setName(name);
+		addMember(member);
+		setAccuracy(accuracy);
+	}
+
+	/**
+	 * Constructor
+	 * 
+	 * @param name
+	 *            name
 	 * @param members
 	 *            members
 	 * @param accuracy
@@ -77,6 +99,23 @@ public abstract class DatumEnsemble implements Identifiable {
 	 */
 	public DatumEnsemble(String name, List<DatumEnsembleMember> members,
 			double accuracy) {
+		setName(name);
+		addMembers(members);
+		setAccuracy(accuracy);
+	}
+
+	/**
+	 * Constructor
+	 * 
+	 * @param name
+	 *            name
+	 * @param members
+	 *            members
+	 * @param accuracy
+	 *            accuracy
+	 */
+	public DatumEnsemble(String name, List<DatumEnsembleMember> members,
+			String accuracy) {
 		setName(name);
 		addMembers(members);
 		setAccuracy(accuracy);
@@ -170,6 +209,15 @@ public abstract class DatumEnsemble implements Identifiable {
 	}
 
 	/**
+	 * Get the accuracy text
+	 * 
+	 * @return accuracy text
+	 */
+	public String getAccuracyText() {
+		return accuracyText;
+	}
+
+	/**
 	 * Set the accuracy
 	 * 
 	 * @param accuracy
@@ -177,6 +225,18 @@ public abstract class DatumEnsemble implements Identifiable {
 	 */
 	public void setAccuracy(double accuracy) {
 		this.accuracy = accuracy;
+		this.accuracyText = String.valueOf(accuracy);
+	}
+
+	/**
+	 * Set the accuracy
+	 * 
+	 * @param accuracy
+	 *            accuracy
+	 */
+	public void setAccuracy(String accuracy) {
+		this.accuracyText = accuracy;
+		this.accuracy = Double.parseDouble(accuracy);
 	}
 
 	/**

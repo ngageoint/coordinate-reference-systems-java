@@ -208,6 +208,11 @@ public class DateTime {
 	private Double fraction = null;
 
 	/**
+	 * Seconds fraction Text
+	 */
+	private String fractionText = null;
+
+	/**
 	 * Local time zone hour
 	 */
 	private Integer timeZoneHour = null;
@@ -421,6 +426,15 @@ public class DateTime {
 	}
 
 	/**
+	 * Get the fraction text
+	 * 
+	 * @return fraction text
+	 */
+	public String getFractionText() {
+		return fractionText;
+	}
+
+	/**
 	 * Check if has a fraction
 	 * 
 	 * @return true if has fraction
@@ -436,10 +450,36 @@ public class DateTime {
 	 *            fraction
 	 */
 	public void setFraction(Double fraction) {
-		if (fraction != null && (fraction < 0 || fraction >= 1.0)) {
-			throw new CRSException("Invalid fraction value: " + fraction);
-		}
+		validateFraction(fraction);
 		this.fraction = fraction;
+		this.fractionText = fraction != null ? String.valueOf(fraction) : null;
+	}
+
+	/**
+	 * Set the fraction
+	 * 
+	 * @param fraction
+	 *            fraction
+	 */
+	public void setFraction(String fraction) {
+		Double value = fraction != null ? Double.parseDouble(fraction) : null;
+		validateFraction(value);
+		this.fractionText = fraction;
+		this.fraction = value;
+	}
+
+	/**
+	 * Validate the fraction
+	 * 
+	 * @param fraction
+	 *            fraction value
+	 */
+	private void validateFraction(Double fraction) {
+		if (fraction != null) {
+			if (fraction < 0 || fraction >= 1.0) {
+				throw new CRSException("Invalid fraction value: " + fraction);
+			}
+		}
 	}
 
 	/**

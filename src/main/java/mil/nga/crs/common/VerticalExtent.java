@@ -25,9 +25,19 @@ public class VerticalExtent {
 	private double minimumHeight;
 
 	/**
+	 * Minimum Height Text
+	 */
+	private String minimumHeightText;
+
+	/**
 	 * Maximum Height
 	 */
 	private double maximumHeight;
+
+	/**
+	 * Maximum Height Text
+	 */
+	private String maximumHeightText;
 
 	/**
 	 * Unit (Length)
@@ -60,10 +70,39 @@ public class VerticalExtent {
 	 *            minimum height
 	 * @param maximumHeight
 	 *            maximum height
+	 */
+	public VerticalExtent(String minimumHeight, String maximumHeight) {
+		this(minimumHeight, maximumHeight, null);
+	}
+
+	/**
+	 * Constructor
+	 * 
+	 * @param minimumHeight
+	 *            minimum height
+	 * @param maximumHeight
+	 *            maximum height
 	 * @param unit
 	 *            unit (length)
 	 */
 	public VerticalExtent(double minimumHeight, double maximumHeight,
+			Unit unit) {
+		setMinimumHeight(minimumHeight);
+		setMaximumHeight(maximumHeight);
+		setUnit(unit);
+	}
+
+	/**
+	 * Constructor
+	 * 
+	 * @param minimumHeight
+	 *            minimum height
+	 * @param maximumHeight
+	 *            maximum height
+	 * @param unit
+	 *            unit (length)
+	 */
+	public VerticalExtent(String minimumHeight, String maximumHeight,
 			Unit unit) {
 		setMinimumHeight(minimumHeight);
 		setMaximumHeight(maximumHeight);
@@ -80,6 +119,15 @@ public class VerticalExtent {
 	}
 
 	/**
+	 * Get the minimum height text
+	 * 
+	 * @return minimum height text
+	 */
+	public String getMinimumHeightText() {
+		return minimumHeightText;
+	}
+
+	/**
 	 * Set the minimum height
 	 * 
 	 * @param minimumHeight
@@ -87,6 +135,18 @@ public class VerticalExtent {
 	 */
 	public void setMinimumHeight(double minimumHeight) {
 		this.minimumHeight = minimumHeight;
+		this.minimumHeightText = String.valueOf(minimumHeight);
+	}
+
+	/**
+	 * Set the minimum height
+	 * 
+	 * @param minimumHeight
+	 *            minimum height
+	 */
+	public void setMinimumHeight(String minimumHeight) {
+		this.minimumHeightText = minimumHeight;
+		this.minimumHeight = Double.parseDouble(minimumHeight);
 	}
 
 	/**
@@ -99,6 +159,15 @@ public class VerticalExtent {
 	}
 
 	/**
+	 * Get the maximum height text
+	 * 
+	 * @return maximum height text
+	 */
+	public String getMaximumHeightText() {
+		return maximumHeightText;
+	}
+
+	/**
 	 * Set the maximum height
 	 * 
 	 * @param maximumHeight
@@ -106,6 +175,18 @@ public class VerticalExtent {
 	 */
 	public void setMaximumHeight(double maximumHeight) {
 		this.maximumHeight = maximumHeight;
+		this.maximumHeightText = String.valueOf(maximumHeight);
+	}
+
+	/**
+	 * Set the maximum height
+	 * 
+	 * @param maximumHeight
+	 *            maximum height
+	 */
+	public void setMaximumHeight(String maximumHeight) {
+		this.maximumHeightText = maximumHeight;
+		this.maximumHeight = Double.parseDouble(maximumHeight);
 	}
 
 	/**

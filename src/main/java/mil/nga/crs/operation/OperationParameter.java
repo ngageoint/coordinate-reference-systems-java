@@ -35,6 +35,11 @@ public class OperationParameter implements Identifiable {
 	private double value;
 
 	/**
+	 * Value Text
+	 */
+	private String valueText;
+
+	/**
 	 * Unit
 	 */
 	private Unit unit;
@@ -85,7 +90,24 @@ public class OperationParameter implements Identifiable {
 	 */
 	public OperationParameter(String name, double value, Unit unit) {
 		this.name = name;
-		this.value = value;
+		setValue(value);
+		this.unit = unit;
+		updateParameter();
+	}
+
+	/**
+	 * Constructor
+	 * 
+	 * @param name
+	 *            name
+	 * @param value
+	 *            value
+	 * @param unit
+	 *            unit
+	 */
+	public OperationParameter(String name, String value, Unit unit) {
+		this.name = name;
+		setValue(value);
 		this.unit = unit;
 		updateParameter();
 	}
@@ -109,13 +131,43 @@ public class OperationParameter implements Identifiable {
 	 *            operation parameter
 	 * @param value
 	 *            value
+	 */
+	public OperationParameter(OperationParameters parameter, String value) {
+		this(parameter, value, null);
+	}
+
+	/**
+	 * Constructor
+	 * 
+	 * @param parameter
+	 *            operation parameter
+	 * @param value
+	 *            value
 	 * @param unit
 	 *            unit
 	 */
 	public OperationParameter(OperationParameters parameter, double value,
 			Unit unit) {
 		this.name = parameter.getName();
-		this.value = value;
+		setValue(value);
+		this.unit = unit;
+		this.parameter = parameter;
+	}
+
+	/**
+	 * Constructor
+	 * 
+	 * @param parameter
+	 *            operation parameter
+	 * @param value
+	 *            value
+	 * @param unit
+	 *            unit
+	 */
+	public OperationParameter(OperationParameters parameter, String value,
+			Unit unit) {
+		this.name = parameter.getName();
+		setValue(value);
 		this.unit = unit;
 		this.parameter = parameter;
 	}
@@ -164,6 +216,15 @@ public class OperationParameter implements Identifiable {
 	}
 
 	/**
+	 * Get the value text
+	 * 
+	 * @return value text
+	 */
+	public String getValueText() {
+		return valueText;
+	}
+
+	/**
 	 * Set the value
 	 * 
 	 * @param value
@@ -171,6 +232,18 @@ public class OperationParameter implements Identifiable {
 	 */
 	public void setValue(double value) {
 		this.value = value;
+		this.valueText = String.valueOf(value);
+	}
+
+	/**
+	 * Set the value
+	 * 
+	 * @param value
+	 *            value
+	 */
+	public void setValue(String value) {
+		this.valueText = value;
+		this.value = Double.parseDouble(value);
 	}
 
 	/**

@@ -25,9 +25,19 @@ public class GeographicBoundingBox {
 	private double lowerLeftLatitude;
 
 	/**
+	 * Lower Left Latitude Text
+	 */
+	private String lowerLeftLatitudeText;
+
+	/**
 	 * Lower Left Longitude
 	 */
 	private double lowerLeftLongitude;
+
+	/**
+	 * Lower Left Longitude Text
+	 */
+	private String lowerLeftLongitudeText;
 
 	/**
 	 * Upper Right Latitude
@@ -35,9 +45,19 @@ public class GeographicBoundingBox {
 	private double upperRightLatitude;
 
 	/**
+	 * Upper Right Latitude Text
+	 */
+	private String upperRightLatitudeText;
+
+	/**
 	 * Upper Right Longitude
 	 */
 	private double upperRightLongitude;
+
+	/**
+	 * Upper Right Longitude Text
+	 */
+	private String upperRightLongitudeText;
 
 	/**
 	 * Constructor
@@ -68,12 +88,42 @@ public class GeographicBoundingBox {
 	}
 
 	/**
+	 * Constructor
+	 * 
+	 * @param lowerLeftLatitude
+	 *            lower left latitude
+	 * @param lowerLeftLongitude
+	 *            lower left longitude
+	 * @param upperRightLatitude
+	 *            upper right latitude
+	 * @param upperRightLongitude
+	 *            upper right longitude
+	 */
+	public GeographicBoundingBox(String lowerLeftLatitude,
+			String lowerLeftLongitude, String upperRightLatitude,
+			String upperRightLongitude) {
+		setLowerLeftLatitude(lowerLeftLatitude);
+		setLowerLeftLongitude(lowerLeftLongitude);
+		setUpperRightLatitude(upperRightLatitude);
+		setUpperRightLongitude(upperRightLongitude);
+	}
+
+	/**
 	 * Get the lower left latitude
 	 * 
 	 * @return lower left latitude
 	 */
 	public double getLowerLeftLatitude() {
 		return lowerLeftLatitude;
+	}
+
+	/**
+	 * Get the lower left latitude text
+	 * 
+	 * @return lower left latitude text
+	 */
+	public String getLowerLeftLatitudeText() {
+		return lowerLeftLatitudeText;
 	}
 
 	/**
@@ -84,6 +134,18 @@ public class GeographicBoundingBox {
 	 */
 	public void setLowerLeftLatitude(double lowerLeftLatitude) {
 		this.lowerLeftLatitude = lowerLeftLatitude;
+		this.lowerLeftLatitudeText = String.valueOf(lowerLeftLatitude);
+	}
+
+	/**
+	 * Set the lower left latitude
+	 * 
+	 * @param lowerLeftLatitude
+	 *            lower left latitude
+	 */
+	public void setLowerLeftLatitude(String lowerLeftLatitude) {
+		this.lowerLeftLatitudeText = lowerLeftLatitude;
+		this.lowerLeftLatitude = Double.parseDouble(lowerLeftLatitude);
 	}
 
 	/**
@@ -96,6 +158,15 @@ public class GeographicBoundingBox {
 	}
 
 	/**
+	 * Get the lower left longitude text
+	 * 
+	 * @return lower left longitude text
+	 */
+	public String getLowerLeftLongitudeText() {
+		return lowerLeftLongitudeText;
+	}
+
+	/**
 	 * Set the lower left longitude
 	 * 
 	 * @param lowerLeftLongitude
@@ -103,6 +174,18 @@ public class GeographicBoundingBox {
 	 */
 	public void setLowerLeftLongitude(double lowerLeftLongitude) {
 		this.lowerLeftLongitude = lowerLeftLongitude;
+		this.lowerLeftLongitudeText = String.valueOf(lowerLeftLongitude);
+	}
+
+	/**
+	 * Set the lower left longitude
+	 * 
+	 * @param lowerLeftLongitude
+	 *            lower left longitude
+	 */
+	public void setLowerLeftLongitude(String lowerLeftLongitude) {
+		this.lowerLeftLongitudeText = lowerLeftLongitude;
+		this.lowerLeftLongitude = Double.parseDouble(lowerLeftLongitude);
 	}
 
 	/**
@@ -115,6 +198,15 @@ public class GeographicBoundingBox {
 	}
 
 	/**
+	 * Set the upper right latitude text
+	 * 
+	 * @return upper right latitude text
+	 */
+	public String getUpperRightLatitudeText() {
+		return upperRightLatitudeText;
+	}
+
+	/**
 	 * Set the upper right latitude
 	 * 
 	 * @param upperRightLatitude
@@ -122,6 +214,18 @@ public class GeographicBoundingBox {
 	 */
 	public void setUpperRightLatitude(double upperRightLatitude) {
 		this.upperRightLatitude = upperRightLatitude;
+		this.upperRightLatitudeText = String.valueOf(upperRightLatitude);
+	}
+
+	/**
+	 * Set the upper right latitude
+	 * 
+	 * @param upperRightLatitude
+	 *            upper right latitude
+	 */
+	public void setUpperRightLatitude(String upperRightLatitude) {
+		this.upperRightLatitudeText = upperRightLatitude;
+		this.upperRightLatitude = Double.parseDouble(upperRightLatitude);
 	}
 
 	/**
@@ -134,6 +238,15 @@ public class GeographicBoundingBox {
 	}
 
 	/**
+	 * Set the upper right longitude text
+	 * 
+	 * @return upper right longitude text
+	 */
+	public String getUpperRightLongitudeText() {
+		return upperRightLongitudeText;
+	}
+
+	/**
 	 * Set the upper right longitude
 	 * 
 	 * @param upperRightLongitude
@@ -141,6 +254,18 @@ public class GeographicBoundingBox {
 	 */
 	public void setUpperRightLongitude(double upperRightLongitude) {
 		this.upperRightLongitude = upperRightLongitude;
+		this.upperRightLongitudeText = String.valueOf(upperRightLongitude);
+	}
+
+	/**
+	 * Set the upper right longitude
+	 * 
+	 * @param upperRightLongitude
+	 *            upper right longitude
+	 */
+	public void setUpperRightLongitude(String upperRightLongitude) {
+		this.upperRightLongitudeText = upperRightLongitude;
+		this.upperRightLongitude = Double.parseDouble(upperRightLongitude);
 	}
 
 	/**

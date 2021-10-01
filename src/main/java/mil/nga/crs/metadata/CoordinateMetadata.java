@@ -26,6 +26,11 @@ public class CoordinateMetadata extends CRS {
 	private Double epoch;
 
 	/**
+	 * Coordinate Epoch Text
+	 */
+	private String epochText;
+
+	/**
 	 * Constructor
 	 */
 	public CoordinateMetadata() {
@@ -52,6 +57,19 @@ public class CoordinateMetadata extends CRS {
 	 *            coordinate epoch
 	 */
 	public CoordinateMetadata(CoordinateReferenceSystem crs, Double epoch) {
+		this(crs);
+		setEpoch(epoch);
+	}
+
+	/**
+	 * Constructor
+	 * 
+	 * @param crs
+	 *            coordinate reference system
+	 * @param epoch
+	 *            coordinate epoch
+	 */
+	public CoordinateMetadata(CoordinateReferenceSystem crs, String epoch) {
 		this(crs);
 		setEpoch(epoch);
 	}
@@ -85,6 +103,15 @@ public class CoordinateMetadata extends CRS {
 	}
 
 	/**
+	 * Get the coordinate epoch text
+	 * 
+	 * @return coordinate epoch text
+	 */
+	public String getEpochText() {
+		return epochText;
+	}
+
+	/**
 	 * Has a coordinate epoch
 	 * 
 	 * @return true if has coordinate epoch
@@ -101,6 +128,18 @@ public class CoordinateMetadata extends CRS {
 	 */
 	public void setEpoch(Double epoch) {
 		this.epoch = epoch;
+		this.epochText = epoch != null ? String.valueOf(epoch) : null;
+	}
+
+	/**
+	 * Set the coordinate epoch
+	 * 
+	 * @param epoch
+	 *            coordinate epoch
+	 */
+	public void setEpoch(String epoch) {
+		this.epochText = epoch;
+		this.epoch = epoch != null ? Double.parseDouble(epoch) : null;
 	}
 
 	/**

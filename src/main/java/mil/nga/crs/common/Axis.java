@@ -41,6 +41,11 @@ public class Axis implements Identifiable {
 	private Double meridian = null;
 
 	/**
+	 * Meridian Text
+	 */
+	private String meridianText = null;
+
+	/**
 	 * Meridian (Angle) Unit
 	 */
 	private Unit meridianUnit = null;
@@ -49,6 +54,11 @@ public class Axis implements Identifiable {
 	 * Bearing
 	 */
 	private Double bearing = null;
+
+	/**
+	 * Bearing Text
+	 */
+	private String bearingText = null;
 
 	/**
 	 * Order
@@ -170,6 +180,15 @@ public class Axis implements Identifiable {
 	}
 
 	/**
+	 * Get the meridian text
+	 * 
+	 * @return meridian text
+	 */
+	public String getMeridianText() {
+		return meridianText;
+	}
+
+	/**
 	 * Has a meridian
 	 * 
 	 * @return true if has meridian
@@ -186,6 +205,18 @@ public class Axis implements Identifiable {
 	 */
 	public void setMeridian(Double meridian) {
 		this.meridian = meridian;
+		this.meridianText = meridian != null ? String.valueOf(meridian) : null;
+	}
+
+	/**
+	 * Set the meridian
+	 * 
+	 * @param meridian
+	 *            meridian
+	 */
+	public void setMeridian(String meridian) {
+		this.meridianText = meridian;
+		this.meridian = meridian != null ? Double.parseDouble(meridian) : null;
 	}
 
 	/**
@@ -217,6 +248,15 @@ public class Axis implements Identifiable {
 	}
 
 	/**
+	 * Get the bearing text
+	 * 
+	 * @return bearing text
+	 */
+	public String getBearingText() {
+		return bearingText;
+	}
+
+	/**
 	 * Has a bearing
 	 * 
 	 * @return true if has bearing
@@ -233,6 +273,18 @@ public class Axis implements Identifiable {
 	 */
 	public void setBearing(Double bearing) {
 		this.bearing = bearing;
+		this.bearingText = bearing != null ? String.valueOf(bearing) : null;
+	}
+
+	/**
+	 * Set the bearing
+	 * 
+	 * @param bearing
+	 *            bearing text
+	 */
+	public void setBearing(String bearing) {
+		this.bearingText = bearing;
+		this.bearing = bearing != null ? Double.parseDouble(bearing) : null;
 	}
 
 	/**

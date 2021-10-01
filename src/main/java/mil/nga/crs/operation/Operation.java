@@ -27,6 +27,11 @@ public abstract class Operation extends CommonCRS {
 	private Double accuracy;
 
 	/**
+	 * Coordinate operation accuracy Text
+	 */
+	private String accuracyText;
+
+	/**
 	 * Constructor
 	 * 
 	 * @param type
@@ -109,6 +114,15 @@ public abstract class Operation extends CommonCRS {
 	}
 
 	/**
+	 * Get the coordinate operation accuracy text
+	 * 
+	 * @return coordinate operation accuracy text
+	 */
+	public String getAccuracyText() {
+		return accuracyText;
+	}
+
+	/**
 	 * Has a coordinate operation accuracy
 	 * 
 	 * @return true if has coordinate operation accuracy
@@ -125,6 +139,18 @@ public abstract class Operation extends CommonCRS {
 	 */
 	public void setAccuracy(Double accuracy) {
 		this.accuracy = accuracy;
+		this.accuracyText = accuracy != null ? String.valueOf(accuracy) : null;
+	}
+
+	/**
+	 * Set the coordinate operation accuracy
+	 * 
+	 * @param accuracy
+	 *            coordinate operation accuracy
+	 */
+	public void setAccuracy(String accuracy) {
+		this.accuracyText = accuracy;
+		this.accuracy = accuracy != null ? Double.parseDouble(accuracy) : null;
 	}
 
 	/**

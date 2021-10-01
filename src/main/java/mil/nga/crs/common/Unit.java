@@ -36,6 +36,11 @@ public class Unit implements Identifiable {
 	private Double conversionFactor;
 
 	/**
+	 * Conversion Factor Text
+	 */
+	private String conversionFactorText;
+
+	/**
 	 * Identifiers
 	 */
 	private List<Identifier> identifiers = null;
@@ -71,6 +76,22 @@ public class Unit implements Identifiable {
 	 *            conversion factor
 	 */
 	public Unit(UnitType type, String name, double conversionFactor) {
+		setType(type);
+		setName(name);
+		setConversionFactor(conversionFactor);
+	}
+
+	/**
+	 * Constructor
+	 * 
+	 * @param type
+	 *            unit type
+	 * @param name
+	 *            name
+	 * @param conversionFactor
+	 *            conversion factor
+	 */
+	public Unit(UnitType type, String name, String conversionFactor) {
 		setType(type);
 		setName(name);
 		setConversionFactor(conversionFactor);
@@ -124,6 +145,15 @@ public class Unit implements Identifiable {
 	}
 
 	/**
+	 * Get the conversion factor text
+	 * 
+	 * @return conversion factor text
+	 */
+	public String getConversionFactorText() {
+		return conversionFactorText;
+	}
+
+	/**
 	 * Has a conversion factor
 	 * 
 	 * @return true if has conversion factor
@@ -140,6 +170,22 @@ public class Unit implements Identifiable {
 	 */
 	public void setConversionFactor(Double conversionFactor) {
 		this.conversionFactor = conversionFactor;
+		this.conversionFactorText = conversionFactor != null
+				? String.valueOf(conversionFactor)
+				: null;
+	}
+
+	/**
+	 * Set the conversion factor
+	 * 
+	 * @param conversionFactor
+	 *            conversion factor
+	 */
+	public void setConversionFactor(String conversionFactor) {
+		this.conversionFactorText = conversionFactor;
+		this.conversionFactor = conversionFactor != null
+				? Double.parseDouble(conversionFactor)
+				: null;
 	}
 
 	/**

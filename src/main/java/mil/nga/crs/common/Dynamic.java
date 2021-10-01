@@ -27,6 +27,11 @@ public class Dynamic implements Identifiable {
 	private double referenceEpoch;
 
 	/**
+	 * Reference Epoch Text
+	 */
+	private String referenceEpochText;
+
+	/**
 	 * Deformation Model Name
 	 */
 	private String deformationModelName = null;
@@ -54,12 +59,31 @@ public class Dynamic implements Identifiable {
 	}
 
 	/**
+	 * Constructor
+	 * 
+	 * @param referenceEpoch
+	 *            reference epoch
+	 */
+	public Dynamic(String referenceEpoch) {
+		setReferenceEpoch(referenceEpoch);
+	}
+
+	/**
 	 * Get the reference epoch
 	 * 
 	 * @return reference epoch
 	 */
 	public double getReferenceEpoch() {
 		return referenceEpoch;
+	}
+
+	/**
+	 * Get the reference epoch text
+	 * 
+	 * @return reference epoch text
+	 */
+	public String getReferenceEpochText() {
+		return referenceEpochText;
 	}
 
 	/**
@@ -70,6 +94,18 @@ public class Dynamic implements Identifiable {
 	 */
 	public void setReferenceEpoch(double referenceEpoch) {
 		this.referenceEpoch = referenceEpoch;
+		this.referenceEpochText = String.valueOf(referenceEpoch);
+	}
+
+	/**
+	 * Set the reference epoch
+	 * 
+	 * @param referenceEpoch
+	 *            reference epoch
+	 */
+	public void setReferenceEpoch(String referenceEpoch) {
+		this.referenceEpochText = referenceEpoch;
+		this.referenceEpoch = Double.parseDouble(referenceEpoch);
 	}
 
 	/**

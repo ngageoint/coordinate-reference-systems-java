@@ -13,9 +13,19 @@ public class TriaxialEllipsoid extends Ellipsoid {
 	private double semiMedianAxis;
 
 	/**
+	 * Semi Median Axis Text
+	 */
+	private String semiMedianAxisText;
+
+	/**
 	 * Semi Minor Axis
 	 */
 	private double semiMinorAxis;
+
+	/**
+	 * Semi Minor Axis Text
+	 */
+	private String semiMinorAxisText;
 
 	/**
 	 * Constructor
@@ -38,6 +48,26 @@ public class TriaxialEllipsoid extends Ellipsoid {
 	 */
 	public TriaxialEllipsoid(String name, double semiMajorAxis,
 			double semiMedianAxis, double semiMinorAxis) {
+		setName(name);
+		setSemiMajorAxis(semiMajorAxis);
+		setSemiMedianAxis(semiMedianAxis);
+		setSemiMinorAxis(semiMinorAxis);
+	}
+
+	/**
+	 * Constructor
+	 * 
+	 * @param name
+	 *            name
+	 * @param semiMajorAxis
+	 *            semi major axis
+	 * @param semiMedianAxis
+	 *            semi major axis
+	 * @param semiMinorAxis
+	 *            semi minor axis
+	 */
+	public TriaxialEllipsoid(String name, String semiMajorAxis,
+			String semiMedianAxis, String semiMinorAxis) {
 		setName(name);
 		setSemiMajorAxis(semiMajorAxis);
 		setSemiMedianAxis(semiMedianAxis);
@@ -80,6 +110,15 @@ public class TriaxialEllipsoid extends Ellipsoid {
 	}
 
 	/**
+	 * Get the semi median axis text
+	 * 
+	 * @return semi median axis text
+	 */
+	public String getSemiMedianAxisText() {
+		return semiMedianAxisText;
+	}
+
+	/**
 	 * Set the semi median axis
 	 * 
 	 * @param semiMedianAxis
@@ -87,6 +126,18 @@ public class TriaxialEllipsoid extends Ellipsoid {
 	 */
 	public void setSemiMedianAxis(double semiMedianAxis) {
 		this.semiMedianAxis = semiMedianAxis;
+		this.semiMedianAxisText = String.valueOf(semiMedianAxis);
+	}
+
+	/**
+	 * Set the semi median axis
+	 * 
+	 * @param semiMedianAxis
+	 *            semi median axis
+	 */
+	public void setSemiMedianAxis(String semiMedianAxis) {
+		this.semiMedianAxisText = semiMedianAxis;
+		this.semiMedianAxis = Double.parseDouble(semiMedianAxis);
 	}
 
 	/**
@@ -99,6 +150,15 @@ public class TriaxialEllipsoid extends Ellipsoid {
 	}
 
 	/**
+	 * Get the semi minor axis text
+	 * 
+	 * @return semi minor axis text
+	 */
+	public String getSemiMinorAxisText() {
+		return semiMinorAxisText;
+	}
+
+	/**
 	 * Set the semi minor axis
 	 * 
 	 * @param semiMinorAxis
@@ -106,6 +166,18 @@ public class TriaxialEllipsoid extends Ellipsoid {
 	 */
 	public void setSemiMinorAxis(double semiMinorAxis) {
 		this.semiMinorAxis = semiMinorAxis;
+		this.semiMinorAxisText = String.valueOf(semiMinorAxis);
+	}
+
+	/**
+	 * Set the semi minor axis
+	 * 
+	 * @param semiMinorAxis
+	 *            semi minor axis
+	 */
+	public void setSemiMinorAxis(String semiMinorAxis) {
+		this.semiMinorAxisText = semiMinorAxis;
+		this.semiMinorAxis = Double.parseDouble(semiMinorAxis);
 	}
 
 	/**

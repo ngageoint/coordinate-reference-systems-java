@@ -35,9 +35,19 @@ public class Ellipsoid implements Identifiable {
 	private double semiMajorAxis;
 
 	/**
+	 * Semi Major Axis Text
+	 */
+	private String semiMajorAxisText;
+
+	/**
 	 * Inverse Flattening
 	 */
 	private double inverseFlattening;
+
+	/**
+	 * Inverse Flattening Text
+	 */
+	private String inverseFlatteningText;
 
 	/**
 	 * Unit (Length)
@@ -68,6 +78,23 @@ public class Ellipsoid implements Identifiable {
 	 */
 	public Ellipsoid(String name, double semiMajorAxis,
 			double inverseFlattening) {
+		setName(name);
+		setSemiMajorAxis(semiMajorAxis);
+		setInverseFlattening(inverseFlattening);
+	}
+
+	/**
+	 * Constructor
+	 * 
+	 * @param name
+	 *            name
+	 * @param semiMajorAxis
+	 *            semi major axis
+	 * @param inverseFlattening
+	 *            inverse flattening
+	 */
+	public Ellipsoid(String name, String semiMajorAxis,
+			String inverseFlattening) {
 		setName(name);
 		setSemiMajorAxis(semiMajorAxis);
 		setInverseFlattening(inverseFlattening);
@@ -111,6 +138,15 @@ public class Ellipsoid implements Identifiable {
 	}
 
 	/**
+	 * Get the semi major axis text
+	 * 
+	 * @return semi major axis text
+	 */
+	public String getSemiMajorAxisText() {
+		return semiMajorAxisText;
+	}
+
+	/**
 	 * Set the semi major axis
 	 * 
 	 * @param semiMajorAxis
@@ -118,6 +154,18 @@ public class Ellipsoid implements Identifiable {
 	 */
 	public void setSemiMajorAxis(double semiMajorAxis) {
 		this.semiMajorAxis = semiMajorAxis;
+		this.semiMajorAxisText = String.valueOf(semiMajorAxis);
+	}
+
+	/**
+	 * Set the semi major axis
+	 * 
+	 * @param semiMajorAxis
+	 *            semi major axis
+	 */
+	public void setSemiMajorAxis(String semiMajorAxis) {
+		this.semiMajorAxisText = semiMajorAxis;
+		this.semiMajorAxis = Double.parseDouble(semiMajorAxis);
 	}
 
 	/**
@@ -130,6 +178,15 @@ public class Ellipsoid implements Identifiable {
 	}
 
 	/**
+	 * Get the inverse flattening text
+	 * 
+	 * @return inverse flattening text
+	 */
+	public String getInverseFlatteningText() {
+		return inverseFlatteningText;
+	}
+
+	/**
 	 * Set the inverse flattening
 	 * 
 	 * @param inverseFlattening
@@ -137,6 +194,18 @@ public class Ellipsoid implements Identifiable {
 	 */
 	public void setInverseFlattening(double inverseFlattening) {
 		this.inverseFlattening = inverseFlattening;
+		this.inverseFlatteningText = String.valueOf(inverseFlattening);
+	}
+
+	/**
+	 * Set the inverse flattening
+	 * 
+	 * @param inverseFlattening
+	 *            inverse flattening
+	 */
+	public void setInverseFlattening(String inverseFlattening) {
+		this.inverseFlatteningText = inverseFlattening;
+		this.inverseFlattening = Double.parseDouble(inverseFlattening);
 	}
 
 	/**
@@ -242,6 +311,24 @@ public class Ellipsoid implements Identifiable {
 			poleRadius = semiMajorAxis * Math.sqrt(1.0 - eccentricity2);
 		} else {
 			poleRadius = semiMajorAxis;
+		}
+		return poleRadius;
+	}
+
+	/**
+	 * Get the pole radius text
+	 *
+	 * @return pole radius text
+	 */
+	public String getPoleRadiusText() {
+		String poleRadius;
+		if (inverseFlattening != 0) {
+			double flattening = 1.0 / inverseFlattening;
+			double eccentricity2 = 2 * flattening - flattening * flattening;
+			double value = semiMajorAxis * Math.sqrt(1.0 - eccentricity2);
+			poleRadius = String.valueOf(value);
+		} else {
+			poleRadius = semiMajorAxisText;
 		}
 		return poleRadius;
 	}
