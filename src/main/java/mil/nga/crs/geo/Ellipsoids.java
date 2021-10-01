@@ -125,7 +125,7 @@ public enum Ellipsoids {
 	ANDRAE("andrae", 6377104.43, 0.0, 300.0, "Andrae 1876 (Den., Iclnd.)"),
 
 	/**
-	 * Australian Natl & S. Amer.
+	 * Australian Natl and S. Amer.
 	 */
 	AUST_SA("aust_SA", 6378160.0, 0.0, 298.25,
 			"Australian Natl & S. Amer. 1969", "GRS 1967 Modified"),
@@ -173,7 +173,7 @@ public enum Ellipsoids {
 	EVRTS69("evrst69", 6377295.664, 0.0, 300.8017, "Everest 1969"),
 
 	/**
-	 * Everest (Sabah & Sarawak)
+	 * Everest (Sabah and Sarawak)
 	 */
 	EVRTSTSS("evrstSS", 6377298.556, 0.0, 300.8017, "Everest (Sabah & Sarawak)",
 			"Everest 1830 (1967 Definition)"),
