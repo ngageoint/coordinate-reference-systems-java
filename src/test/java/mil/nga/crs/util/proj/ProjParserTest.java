@@ -118,4 +118,64 @@ public class ProjParserTest {
 
 	}
 
+	/**
+	 * Test EPSG 2056
+	 * 
+	 * @throws IOException
+	 *             upon error
+	 */
+	@Test
+	public void test2056() throws IOException {
+
+		// +proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333 +k_0=1
+		// +x_0=2600000 +y_0=1200000 +ellps=bessel
+		// +towgs84=674.374,15.056,405.346,0,0,0,0 +units=m +no_defs
+
+		String definition = "PROJCRS[\"CH1903+ / LV95\",BASEGEOGCRS[\"CH1903+\",DATUM[\"CH1903+\","
+				+ "ELLIPSOID[\"Bessel 1841\",6377397.155,299.1528128,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",7004]],"
+				+ "ID[\"EPSG\",6150]],ID[\"EPSG\",4150]],"
+				+ "CONVERSION[\"Swiss Oblique Mercator 1995\",METHOD[\"Hotine Oblique Mercator (variant B)\",ID[\"EPSG\",9815]],"
+				+ "PARAMETER[\"Latitude of projection centre\",46.952405556,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"
+				+ "PARAMETER[\"Longitude of projection centre\",7.439583333,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"
+				+ "PARAMETER[\"Azimuth of initial line\",90,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"
+				+ "PARAMETER[\"Angle from Rectified to Skew Grid\",90,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"
+				+ "PARAMETER[\"Scale factor on initial line\",1,SCALEUNIT[\"unity\",1,ID[\"EPSG\",9201]]],"
+				+ "PARAMETER[\"Easting at projection centre\",2600000,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"
+				+ "PARAMETER[\"Northing at projection centre\",1200000,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"
+				+ "PARAMETER[\"X-axis translation\",674.374,LENGTHUNIT[\"metre\",1.0]],"
+				+ "PARAMETER[\"Y-axis translation\",15.056,LENGTHUNIT[\"metre\",1.0]],"
+				+ "PARAMETER[\"Z-axis translation\",405.346,LENGTHUNIT[\"metre\",1.0]],"
+				+ "ID[\"EPSG\",19950]],"
+				+ "CS[Cartesian,2,ID[\"EPSG\",4400]],AXIS[\"Easting (E)\",east],AXIS[\"Northing (N)\",north],"
+				+ "LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",2056]]";
+
+		String expected = "+proj=somerc +lat_0=46.952405556 +lon_0=7.439583333 +k_0=1 +x_0=2600000 +y_0=1200000 +ellps=bessel +towgs84=674.374,15.056,405.346,0,0,0,0 +units=m +no_defs";
+		assertEquals(expected, ProjParser.paramsText(definition));
+
+		definition = "PROJCS[\"CH1903+ / LV95\"," + "GEOGCS[\"CH1903+\","
+				+ "DATUM[\"CH1903+\","
+				+ "SPHEROID[\"Bessel 1841\",6377397.155,299.1528128,"
+				+ "AUTHORITY[\"EPSG\",\"7004\"]],"
+				+ "TOWGS84[674.374,15.056,405.346,0,0,0,0],"
+				+ "AUTHORITY[\"EPSG\",\"6150\"]]," + "PRIMEM[\"Greenwich\",0,"
+				+ "AUTHORITY[\"EPSG\",\"8901\"]],"
+				+ "UNIT[\"degree\",0.0174532925199433,"
+				+ "AUTHORITY[\"EPSG\",\"9122\"]],"
+				+ "AUTHORITY[\"EPSG\",\"4150\"]],"
+				+ "PROJECTION[\"Hotine_Oblique_Mercator_Azimuth_Center\"],"
+				+ "PARAMETER[\"latitude_of_center\",46.95240555555556],"
+				+ "PARAMETER[\"longitude_of_center\",7.439583333333333],"
+				+ "PARAMETER[\"azimuth\",90],"
+				+ "PARAMETER[\"rectified_grid_angle\",90],"
+				+ "PARAMETER[\"scale_factor\",1],"
+				+ "PARAMETER[\"false_easting\",2600000],"
+				+ "PARAMETER[\"false_northing\",1200000]," + "UNIT[\"metre\",1,"
+				+ "AUTHORITY[\"EPSG\",\"9001\"]]," + "AXIS[\"Y\",EAST],"
+				+ "AXIS[\"X\",NORTH]," + "AUTHORITY[\"EPSG\",\"2056\"]]";
+
+		expected = "+proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333 +k_0=1 +x_0=2600000 +y_0=1200000 +ellps=bessel +towgs84=674.374,15.056,405.346,0,0,0,0 +units=m +no_defs";
+		assertEquals(expected, ProjParser.paramsText(definition));
+
+	}
+
 }
