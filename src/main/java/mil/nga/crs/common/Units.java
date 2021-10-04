@@ -160,7 +160,11 @@ public enum Units {
 	private static final Map<String, Units> nameTypes = new HashMap<>();
 	static {
 		for (Units type : values()) {
-			nameTypes.put(type.getName().toLowerCase(), type);
+			String lowercase = type.getName().toLowerCase();
+			nameTypes.put(lowercase, type);
+			if (lowercase.contains("metre")) {
+				nameTypes.put(lowercase.replaceAll("metre", "meter"), type);
+			}
 		}
 	}
 
