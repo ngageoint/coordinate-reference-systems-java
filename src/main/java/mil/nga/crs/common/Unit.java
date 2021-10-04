@@ -251,6 +251,17 @@ public class Unit implements Identifiable {
 	}
 
 	/**
+	 * Determine if the unit names are equal, ignoring case
+	 * 
+	 * @param unit
+	 *            unit
+	 * @return true if equal names
+	 */
+	public boolean equalsName(Unit unit) {
+		return name.equalsIgnoreCase(unit.getName());
+	}
+
+	/**
 	 * {@inheritDoc}
 	 */
 	@Override

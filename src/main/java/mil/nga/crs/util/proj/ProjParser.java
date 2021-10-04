@@ -350,17 +350,20 @@ public class ProjParser {
 		} else {
 
 			params.setA(convert(ellipsoid.getSemiMajorAxis(),
-					ellipsoid.getUnit(), Units.METRE));
+					ellipsoid.getSemiMajorAxisText(), ellipsoid.getUnit(),
+					Units.METRE));
 
 			switch (ellipsoid.getType()) {
 			case OBLATE:
 				params.setB(convert(ellipsoid.getPoleRadius(),
-						ellipsoid.getUnit(), Units.METRE));
+						ellipsoid.getPoleRadiusText(), ellipsoid.getUnit(),
+						Units.METRE));
 				break;
 			case TRIAXIAL:
 				TriaxialEllipsoid triaxial = (TriaxialEllipsoid) ellipsoid;
 				params.setB(convert(triaxial.getSemiMinorAxis(),
-						ellipsoid.getUnit(), Units.METRE));
+						triaxial.getSemiMinorAxisText(), ellipsoid.getUnit(),
+						Units.METRE));
 				break;
 			default:
 				throw new CRSException(
@@ -396,7 +399,7 @@ public class ProjParser {
 	private static void updateDatumTransform(ProjParams params, CRS crs) {
 		Object toWGS84 = crs.getExtra(CRSKeyword.TOWGS84.name());
 		if (toWGS84 != null) {
-			updateDatumTransform(params, (double[]) toWGS84);
+			updateDatumTransform(params, (String[]) toWGS84);
 		}
 	}
 
@@ -409,7 +412,7 @@ public class ProjParser {
 	 *            to WGS84 double array
 	 */
 	private static void updateDatumTransform(ProjParams params,
-			double[] toWGS84) {
+			String[] toWGS84) {
 		if (toWGS84.length >= 3) {
 			params.setXTranslation(toWGS84[0]);
 			params.setYTranslation(toWGS84[1]);
@@ -499,6 +502,7 @@ public class ProjParser {
 				}
 			} else {
 				params.setPm(convert(primeMeridian.getLongitude(),
+						primeMeridian.getLongitudeText(),
 						primeMeridian.getLongitudeUnit(), Units.DEGREE));
 			}
 		}
@@ -836,9 +840,8 @@ public class ProjParser {
 					case POLAR_STEREOGRAPHIC_A:
 					case POLAR_STEREOGRAPHIC_B:
 					case POLAR_STEREOGRAPHIC_C:
-						double latTs = value(parameter, Units.DEGREE);
-						params.setLatTs(latTs);
-						if (latTs >= 0) {
+						params.setLatTs(value(parameter, Units.DEGREE));
+						if (Double.valueOf(params.getLatTs()) >= 0) {
 							params.setLat0("90");
 						} else {
 							params.setLat0("-90");
@@ -1022,7 +1025,7 @@ public class ProjParser {
 	 *            in unit
 	 * @return converted value
 	 */
-	private static double value(OperationParameter parameter, Unit unit,
+	private static String value(OperationParameter parameter, Unit unit,
 			Units inUnit) {
 		return value(parameter, unit, inUnit.createUnit());
 	}
@@ -1038,13 +1041,14 @@ public class ProjParser {
 	 *            in unit
 	 * @return converted value
 	 */
-	private static double value(OperationParameter parameter, Unit unit,
+	private static String value(OperationParameter parameter, Unit unit,
 			Unit inUnit) {
 		Unit parameterUnit = parameter.getUnit();
 		if (parameterUnit == null) {
 			parameterUnit = unit;
 		}
-		return convert(parameter.getValue(), parameterUnit, inUnit);
+		return convert(parameter.getValue(), parameter.getValueText(),
+				parameterUnit, inUnit);
 	}
 
 	/**
@@ -1056,7 +1060,7 @@ public class ProjParser {
 	 *            unit
 	 * @return converted value
 	 */
-	private static double value(OperationParameter parameter, Units unit) {
+	private static String value(OperationParameter parameter, Units unit) {
 		return value(parameter, unit.createUnit());
 	}
 
@@ -1069,8 +1073,9 @@ public class ProjParser {
 	 *            unit
 	 * @return converted value
 	 */
-	private static double value(OperationParameter parameter, Unit unit) {
-		return convert(parameter.getValue(), parameter.getUnit(), unit);
+	private static String value(OperationParameter parameter, Unit unit) {
+		return convert(parameter.getValue(), parameter.getValueText(),
+				parameter.getUnit(), unit);
 	}
 
 	/**
@@ -1078,14 +1083,17 @@ public class ProjParser {
 	 * 
 	 * @param value
 	 *            value
+	 * @param textValue
+	 *            text value
 	 * @param fromUnit
 	 *            from unit
 	 * @param toUnit
 	 *            to unit
 	 * @return converted value
 	 */
-	private static double convert(double value, Unit fromUnit, Units toUnit) {
-		return convert(value, fromUnit, toUnit.createUnit());
+	private static String convert(double value, String textValue, Unit fromUnit,
+			Units toUnit) {
+		return convert(value, textValue, fromUnit, toUnit.createUnit());
 	}
 
 	/**
@@ -1093,23 +1101,28 @@ public class ProjParser {
 	 * 
 	 * @param value
 	 *            value
+	 * @param textValue
+	 *            text value
 	 * @param fromUnit
 	 *            from unit
 	 * @param toUnit
 	 *            to unit
 	 * @return converted value
 	 */
-	private static double convert(double value, Unit fromUnit, Unit toUnit) {
+	private static String convert(double value, String textValue, Unit fromUnit,
+			Unit toUnit) {
 
 		if (fromUnit == null) {
 			fromUnit = Units.createDefaultUnit(toUnit.getType());
 		}
 
-		if (Units.canConvert(fromUnit, toUnit)) {
+		if (Units.canConvert(fromUnit, toUnit)
+				&& !fromUnit.equalsName(toUnit)) {
 			value = Units.convert(value, fromUnit, toUnit);
+			textValue = String.valueOf(value);
 		}
 
-		return value;
+		return textValue;
 	}
 
 	/**

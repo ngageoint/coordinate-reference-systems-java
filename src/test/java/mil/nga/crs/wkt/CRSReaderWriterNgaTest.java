@@ -93,7 +93,7 @@ public class CRSReaderWriterNgaTest {
 		String expectedText = "COMPOUNDCRS[\"WGS84 Height (EGM08)\","
 				+ "GEODCRS[\"WGS 84\","
 				+ "DATUM[\"World Geodetic System 1984\","
-				+ "ELLIPSOID[\"WGS 84\",6378137.0,298.257223563,LENGTHUNIT[\"metre\",1.0]]],"
+				+ "ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1.0]]],"
 				+ "CS[ellipsoidal,2],"
 				+ "AXIS[\"Geodetic latitude (Lat)\",north],"
 				+ "AXIS[\"Geodetic longitude (Long)\",east],"

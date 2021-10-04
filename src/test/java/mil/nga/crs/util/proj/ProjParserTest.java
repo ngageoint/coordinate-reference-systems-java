@@ -4,6 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
 
+import org.junit.Test;
+
 /**
  * CRS to proj4 parser tests
  * 
@@ -17,7 +19,7 @@ public class ProjParserTest {
 	 * @throws IOException
 	 *             upon error
 	 */
-	// @Test TODO
+	@Test
 	public void test2036() throws IOException {
 
 		// +proj=sterea +lat_0=46.5 +lon_0=-66.5 +k=0.999912 +x_0=2500000

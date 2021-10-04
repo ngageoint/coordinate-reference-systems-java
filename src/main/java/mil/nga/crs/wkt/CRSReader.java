@@ -2019,7 +2019,8 @@ public class CRSReader implements Closeable {
 			readSeparator();
 			readKeyword(CRSKeyword.EPOCH);
 			readLeftDelimiter();
-			metadata.setEpoch(reader.readUnsignedNumber());
+			metadata.setEpoch(reader.readExpectedToken());
+			validateUnsignedDouble(metadata.getEpoch());
 			readRightDelimiter();
 
 		}
@@ -2073,7 +2074,7 @@ public class CRSReader implements Closeable {
 
 		if (isKeywordNext(CRSKeyword.OPERATIONACCURACY)) {
 			readSeparator();
-			operation.setAccuracy(readAccuracy());
+			operation.setAccuracy(readAccuracyText());
 		}
 
 		readScopeExtentIdentifierRemark(operation);
@@ -2119,7 +2120,7 @@ public class CRSReader implements Closeable {
 
 		if (isKeywordNext(CRSKeyword.OPERATIONACCURACY)) {
 			readSeparator();
-			operation.setAccuracy(readAccuracy());
+			operation.setAccuracy(readAccuracyText());
 		}
 
 		readScopeExtentIdentifierRemark(operation);
@@ -2197,7 +2198,7 @@ public class CRSReader implements Closeable {
 
 		if (isKeywordNext(CRSKeyword.OPERATIONACCURACY)) {
 			readSeparator();
-			operation.setAccuracy(readAccuracy());
+			operation.setAccuracy(readAccuracyText());
 		}
 
 		readScopeExtentIdentifierRemark(operation);
@@ -2453,7 +2454,7 @@ public class CRSReader implements Closeable {
 				CRSKeyword.ANCHOR, CRSKeyword.ID);
 
 		if (keyword == CRSKeyword.TOWGS84) {
-			double[] toWGS84 = readToWGS84Compat();
+			String[] toWGS84 = readToWGS84Compat();
 			if (crs != null) {
 				crs.addExtra(CRSKeyword.TOWGS84.name(), toWGS84);
 			}
@@ -2472,7 +2473,7 @@ public class CRSReader implements Closeable {
 		}
 
 		if (keyword == CRSKeyword.TOWGS84) {
-			double[] toWGS84 = readToWGS84Compat();
+			String[] toWGS84 = readToWGS84Compat();
 			if (crs != null) {
 				crs.addExtra(CRSKeyword.TOWGS84.name(), toWGS84);
 			}
@@ -2567,7 +2568,7 @@ public class CRSReader implements Closeable {
 
 		readLeftDelimiter();
 
-		datumEnsemble.setAccuracy(reader.readNumber());
+		datumEnsemble.setAccuracy(reader.readExpectedToken());
 
 		readRightDelimiter();
 
@@ -2632,7 +2633,8 @@ public class CRSReader implements Closeable {
 
 		readLeftDelimiter();
 
-		dynamic.setReferenceEpoch(reader.readUnsignedNumber());
+		dynamic.setReferenceEpoch(reader.readExpectedToken());
+		validateUnsignedDouble(dynamic.getReferenceEpoch());
 
 		readRightDelimiter();
 
@@ -2676,7 +2678,7 @@ public class CRSReader implements Closeable {
 		primeMeridian.setName(reader.readExpectedToken());
 
 		readSeparator();
-		primeMeridian.setLongitude(reader.readNumber());
+		primeMeridian.setLongitude(reader.readExpectedToken());
 
 		CRSKeyword keyword = readToKeyword(CRSKeyword.ANGLEUNIT, CRSKeyword.ID);
 
@@ -2721,20 +2723,24 @@ public class CRSReader implements Closeable {
 		ellipsoid.setName(reader.readExpectedToken());
 
 		readSeparator();
-		ellipsoid.setSemiMajorAxis(reader.readUnsignedNumber());
+		ellipsoid.setSemiMajorAxis(reader.readExpectedToken());
+		validateUnsignedDouble(ellipsoid.getSemiMajorAxis());
 
 		if (triaxial != null) {
 
 			readSeparator();
-			triaxial.setSemiMedianAxis(reader.readUnsignedNumber());
+			triaxial.setSemiMedianAxis(reader.readExpectedToken());
+			validateUnsignedDouble(triaxial.getSemiMedianAxis());
 
 			readSeparator();
-			triaxial.setSemiMinorAxis(reader.readUnsignedNumber());
+			triaxial.setSemiMinorAxis(reader.readExpectedToken());
+			validateUnsignedDouble(triaxial.getSemiMinorAxis());
 
 		} else {
 
 			readSeparator();
-			ellipsoid.setInverseFlattening(reader.readUnsignedNumber());
+			ellipsoid.setInverseFlattening(reader.readExpectedToken());
+			validateUnsignedDouble(ellipsoid.getInverseFlattening());
 
 		}
 
@@ -2851,7 +2857,8 @@ public class CRSReader implements Closeable {
 
 		if (type != UnitType.TIMEUNIT || isNonKeywordNext()) {
 			readSeparator();
-			unit.setConversionFactor(reader.readUnsignedNumber());
+			unit.setConversionFactor(reader.readExpectedToken());
+			validateUnsignedDouble(unit.getConversionFactor());
 		}
 
 		CRSKeyword keyword = readToKeyword(CRSKeyword.ID);
@@ -3096,7 +3103,7 @@ public class CRSReader implements Closeable {
 
 					readLeftDelimiter();
 
-					axis.setMeridian(reader.readNumber());
+					axis.setMeridian(reader.readExpectedToken());
 
 					readSeparator();
 					axis.setMeridianUnit(readAngleUnit());
@@ -3115,7 +3122,7 @@ public class CRSReader implements Closeable {
 
 				readLeftDelimiter();
 
-				axis.setBearing(reader.readNumber());
+				axis.setBearing(reader.readExpectedToken());
 
 				readRightDelimiter();
 
@@ -3310,16 +3317,16 @@ public class CRSReader implements Closeable {
 
 		readLeftDelimiter();
 
-		boundingBox.setLowerLeftLatitude(reader.readNumber());
+		boundingBox.setLowerLeftLatitude(reader.readExpectedToken());
 
 		readSeparator();
-		boundingBox.setLowerLeftLongitude(reader.readNumber());
+		boundingBox.setLowerLeftLongitude(reader.readExpectedToken());
 
 		readSeparator();
-		boundingBox.setUpperRightLatitude(reader.readNumber());
+		boundingBox.setUpperRightLatitude(reader.readExpectedToken());
 
 		readSeparator();
-		boundingBox.setUpperRightLongitude(reader.readNumber());
+		boundingBox.setUpperRightLongitude(reader.readExpectedToken());
 
 		readRightDelimiter();
 
@@ -3341,10 +3348,10 @@ public class CRSReader implements Closeable {
 
 		readLeftDelimiter();
 
-		verticalExtent.setMinimumHeight(reader.readNumber());
+		verticalExtent.setMinimumHeight(reader.readExpectedToken());
 
 		readSeparator();
-		verticalExtent.setMaximumHeight(reader.readNumber());
+		verticalExtent.setMaximumHeight(reader.readExpectedToken());
 
 		CRSKeyword keyword = readToKeyword(CRSKeyword.LENGTHUNIT);
 		if (keyword == CRSKeyword.LENGTHUNIT) {
@@ -3506,7 +3513,7 @@ public class CRSReader implements Closeable {
 		parameter.setName(reader.readExpectedToken());
 
 		readSeparator();
-		parameter.setValue(reader.readNumber());
+		parameter.setValue(reader.readExpectedToken());
 
 		CRSKeyword[] keywords = null;
 		switch (type) {
@@ -3806,6 +3813,25 @@ public class CRSReader implements Closeable {
 	}
 
 	/**
+	 * Read an operation accuracy
+	 * 
+	 * @return operation accuracy
+	 * @throws IOException
+	 *             upon failure to read
+	 */
+	public String readAccuracyText() throws IOException {
+
+		readKeyword(CRSKeyword.OPERATIONACCURACY);
+		readLeftDelimiter();
+
+		String accuracy = reader.readExpectedToken();
+
+		readRightDelimiter();
+
+		return accuracy;
+	}
+
+	/**
 	 * Read Point Motion Operation parameters
 	 * 
 	 * @return parameters
@@ -4041,7 +4067,7 @@ public class CRSReader implements Closeable {
 
 		Object toWGS84 = base.getExtra(CRSKeyword.TOWGS84.name());
 		if (toWGS84 != null) {
-			addTransformParameters((double[]) toWGS84, mapProjection);
+			addTransformParameters((String[]) toWGS84, mapProjection);
 		}
 
 		crs.setMapProjection(mapProjection);
@@ -4080,7 +4106,7 @@ public class CRSReader implements Closeable {
 	 * @param mapProjection
 	 *            map projection
 	 */
-	public static void addTransformParameters(double[] transform,
+	public static void addTransformParameters(String[] transform,
 			MapProjection mapProjection) {
 
 		boolean param3 = false;
@@ -4089,7 +4115,7 @@ public class CRSReader implements Closeable {
 		if (transform != null) {
 
 			for (int i = 0; i < transform.length; i++) {
-				if (transform[i] != 0.0) {
+				if (Double.valueOf(transform[i]) != 0.0) {
 					param3 = true;
 					if (i >= 3) {
 						param7 = true;
@@ -4467,9 +4493,9 @@ public class CRSReader implements Closeable {
 	 * @throws IOException
 	 *             upon failure to read
 	 */
-	public double[] readToWGS84Compat() throws IOException {
+	public String[] readToWGS84Compat() throws IOException {
 
-		double[] value = new double[7];
+		String[] value = new String[7];
 
 		readKeyword(CRSKeyword.TOWGS84);
 
@@ -4481,7 +4507,7 @@ public class CRSReader implements Closeable {
 				readSeparator();
 			}
 
-			value[i] = reader.readNumber();
+			value[i] = reader.readExpectedToken();
 		}
 		readRightDelimiter();
 
@@ -4520,6 +4546,18 @@ public class CRSReader implements Closeable {
 		} while (isKeywordNext(CRSKeyword.EXTENSION));
 
 		return extensions;
+	}
+
+	/**
+	 * Validated unsigned double
+	 * 
+	 * @param value
+	 *            double value
+	 */
+	private void validateUnsignedDouble(Double value) {
+		if (value == null || value < 0) {
+			throw new CRSException("Invalid unsigned number. found: " + value);
+		}
 	}
 
 }

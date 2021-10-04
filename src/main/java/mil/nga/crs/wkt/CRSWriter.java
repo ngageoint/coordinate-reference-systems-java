@@ -1154,7 +1154,7 @@ public class CRSWriter implements Closeable {
 			writeSeparator();
 			write(CRSKeyword.EPOCH);
 			writeLeftDelimiter();
-			write(metadata.getEpoch());
+			writer.write(metadata.getEpochText());
 			writeRightDelimiter();
 
 		}
@@ -1206,7 +1206,7 @@ public class CRSWriter implements Closeable {
 
 		if (operation.hasAccuracy()) {
 			writeSeparator();
-			writeAccuracy(operation.getAccuracy());
+			writeAccuracy(operation.getAccuracyText());
 		}
 
 		writeScopeExtentIdentifierRemark(operation);
@@ -1480,7 +1480,7 @@ public class CRSWriter implements Closeable {
 		writeSeparator();
 		write(CRSKeyword.ENSEMBLEACCURACY);
 		writeLeftDelimiter();
-		write(datumEnsemble.getAccuracy());
+		writer.write(datumEnsemble.getAccuracyText());
 		writeRightDelimiter();
 
 		if (datumEnsemble.hasIdentifiers()) {
@@ -1541,7 +1541,7 @@ public class CRSWriter implements Closeable {
 
 		writeLeftDelimiter();
 
-		write(dynamic.getReferenceEpoch());
+		writer.write(dynamic.getReferenceEpochText());
 
 		writeRightDelimiter();
 
@@ -1582,7 +1582,7 @@ public class CRSWriter implements Closeable {
 		writeQuotedText(primeMeridian.getName());
 
 		writeSeparator();
-		write(primeMeridian.getLongitude());
+		writer.write(primeMeridian.getLongitudeText());
 
 		if (primeMeridian.hasLongitudeUnit()) {
 			writeSeparator();
@@ -1621,20 +1621,20 @@ public class CRSWriter implements Closeable {
 		writeQuotedText(ellipsoid.getName());
 
 		writeSeparator();
-		write(ellipsoid.getSemiMajorAxis());
+		writer.write(ellipsoid.getSemiMajorAxisText());
 
 		if (triaxial != null) {
 
 			writeSeparator();
-			write(triaxial.getSemiMedianAxis());
+			writer.write(triaxial.getSemiMedianAxisText());
 
 			writeSeparator();
-			write(triaxial.getSemiMinorAxis());
+			writer.write(triaxial.getSemiMinorAxisText());
 
 		} else {
 
 			writeSeparator();
-			write(ellipsoid.getInverseFlattening());
+			writer.write(ellipsoid.getInverseFlatteningText());
 
 		}
 
@@ -1669,7 +1669,7 @@ public class CRSWriter implements Closeable {
 
 		if (unit.hasConversionFactor()) {
 			writeSeparator();
-			write(unit.getConversionFactor());
+			writer.write(unit.getConversionFactorText());
 		}
 
 		if (unit.hasIdentifiers()) {
@@ -1822,7 +1822,7 @@ public class CRSWriter implements Closeable {
 
 				writeLeftDelimiter();
 
-				write(axis.getMeridian());
+				writer.write(axis.getMeridianText());
 
 				writeSeparator();
 				write(axis.getMeridianUnit());
@@ -1840,7 +1840,7 @@ public class CRSWriter implements Closeable {
 
 			writeLeftDelimiter();
 
-			write(axis.getBearing());
+			writer.write(axis.getBearingText());
 
 			writeRightDelimiter();
 
@@ -2000,16 +2000,16 @@ public class CRSWriter implements Closeable {
 
 		writeLeftDelimiter();
 
-		write(geographicBoundingBox.getLowerLeftLatitude());
+		writer.write(geographicBoundingBox.getLowerLeftLatitudeText());
 
 		writeSeparator();
-		write(geographicBoundingBox.getLowerLeftLongitude());
+		writer.write(geographicBoundingBox.getLowerLeftLongitudeText());
 
 		writeSeparator();
-		write(geographicBoundingBox.getUpperRightLatitude());
+		writer.write(geographicBoundingBox.getUpperRightLatitudeText());
 
 		writeSeparator();
-		write(geographicBoundingBox.getUpperRightLongitude());
+		writer.write(geographicBoundingBox.getUpperRightLongitudeText());
 
 		writeRightDelimiter();
 	}
@@ -2028,10 +2028,10 @@ public class CRSWriter implements Closeable {
 
 		writeLeftDelimiter();
 
-		write(verticalExtent.getMinimumHeight());
+		writer.write(verticalExtent.getMinimumHeightText());
 
 		writeSeparator();
-		write(verticalExtent.getMaximumHeight());
+		writer.write(verticalExtent.getMaximumHeightText());
 
 		if (verticalExtent.hasUnit()) {
 			writeSeparator();
@@ -2154,7 +2154,7 @@ public class CRSWriter implements Closeable {
 		if (parameter.isFile()) {
 			writeQuotedText(parameter.getFileName());
 		} else {
-			write(parameter.getValue());
+			writer.write(parameter.getValueText());
 
 			if (parameter.hasUnit()) {
 				writeSeparator();
@@ -2361,6 +2361,25 @@ public class CRSWriter implements Closeable {
 		writeLeftDelimiter();
 
 		write(accuracy);
+
+		writeRightDelimiter();
+	}
+
+	/**
+	 * Write an operation accuracy
+	 * 
+	 * @param accuracy
+	 *            operation accuracy
+	 * @throws IOException
+	 *             upon failure to write
+	 */
+	public void writeAccuracy(String accuracy) throws IOException {
+
+		write(CRSKeyword.OPERATIONACCURACY);
+
+		writeLeftDelimiter();
+
+		writer.write(accuracy);
 
 		writeRightDelimiter();
 	}
