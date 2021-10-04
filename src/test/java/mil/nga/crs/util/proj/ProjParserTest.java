@@ -66,4 +66,56 @@ public class ProjParserTest {
 
 	}
 
+	/**
+	 * Test EPSG 2046
+	 * 
+	 * @throws IOException
+	 *             upon error
+	 */
+	@Test
+	public void test2046() throws IOException {
+
+		// +proj=tmerc +lat_0=0 +lon_0=15 +k=1 +x_0=0 +y_0=0 +axis=wsu
+		// +ellps=WGS84 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
+
+		String definition = "PROJCRS[\"Hartebeesthoek94 / Lo15\",BASEGEOGCRS[\"Hartebeesthoek94\","
+				+ "DATUM[\"Hartebeesthoek94\","
+				+ "ELLIPSOID[\"WGS 84\",6378137,298.2572236,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",7030]],"
+				+ "ID[\"EPSG\",6148]],ID[\"EPSG\",4148]],"
+				+ "CONVERSION[\"South African Survey Grid zone 15\",METHOD[\"Transverse Mercator (South Orientated)\",ID[\"EPSG\",9808]],"
+				+ "PARAMETER[\"Latitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"
+				+ "PARAMETER[\"Longitude of natural origin\",15,ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]]],"
+				+ "PARAMETER[\"Scale factor at natural origin\",1,SCALEUNIT[\"unity\",1,ID[\"EPSG\",9201]]],"
+				+ "PARAMETER[\"False easting\",0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"
+				+ "PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],"
+				+ "ID[\"EPSG\",17515]],"
+				+ "CS[Cartesian,2,ID[\"EPSG\",6503]],AXIS[\"Westing (Y)\",west],AXIS[\"Southing (X)\",south],"
+				+ "LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]],ID[\"EPSG\",2046]]";
+
+		String expected = "+proj=tmerc +lat_0=0 +lon_0=15 +k_0=1 +x_0=0 +y_0=0 +axis=wsu +ellps=WGS84 +units=m +no_defs";
+		assertEquals(expected, ProjParser.paramsText(definition));
+
+		definition = "PROJCS[\"Hartebeesthoek94 / Lo15\","
+				+ "GEOGCS[\"Hartebeesthoek94\"," + "DATUM[\"Hartebeesthoek94\","
+				+ "SPHEROID[\"WGS 84\",6378137,298.257223563,"
+				+ "AUTHORITY[\"EPSG\",\"7030\"]]," + "TOWGS84[0,0,0,0,0,0,0],"
+				+ "AUTHORITY[\"EPSG\",\"6148\"]]," + "PRIMEM[\"Greenwich\",0,"
+				+ "AUTHORITY[\"EPSG\",\"8901\"]],"
+				+ "UNIT[\"degree\",0.0174532925199433,"
+				+ "AUTHORITY[\"EPSG\",\"9122\"]],"
+				+ "AUTHORITY[\"EPSG\",\"4148\"]],"
+				+ "PROJECTION[\"Transverse_Mercator_South_Orientated\"],"
+				+ "PARAMETER[\"latitude_of_origin\",0],"
+				+ "PARAMETER[\"central_meridian\",15],"
+				+ "PARAMETER[\"scale_factor\",1],"
+				+ "PARAMETER[\"false_easting\",0],"
+				+ "PARAMETER[\"false_northing\",0]," + "UNIT[\"metre\",1,"
+				+ "AUTHORITY[\"EPSG\",\"9001\"]]," + "AXIS[\"Y\",WEST],"
+				+ "AXIS[\"X\",SOUTH]," + "AUTHORITY[\"EPSG\",\"2046\"]]";
+
+		expected = "+proj=tmerc +lat_0=0 +lon_0=15 +k_0=1 +x_0=0 +y_0=0 +axis=wsu +ellps=WGS84 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs";
+		assertEquals(expected, ProjParser.paramsText(definition));
+
+	}
+
 }
