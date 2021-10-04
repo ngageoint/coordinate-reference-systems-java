@@ -90,6 +90,7 @@ public class Unit implements Identifiable {
 	 *            name
 	 * @param conversionFactor
 	 *            conversion factor
+	 * @since 1.1.0
 	 */
 	public Unit(UnitType type, String name, String conversionFactor) {
 		setType(type);
@@ -148,6 +149,7 @@ public class Unit implements Identifiable {
 	 * Get the conversion factor text
 	 * 
 	 * @return conversion factor text
+	 * @since 1.1.0
 	 */
 	public String getConversionFactorText() {
 		return conversionFactorText;
@@ -180,6 +182,7 @@ public class Unit implements Identifiable {
 	 * 
 	 * @param conversionFactor
 	 *            conversion factor
+	 * @since 1.1.0
 	 */
 	public void setConversionFactor(String conversionFactor) {
 		this.conversionFactorText = conversionFactor;
@@ -256,6 +259,7 @@ public class Unit implements Identifiable {
 	 * @param unit
 	 *            unit
 	 * @return true if equal names
+	 * @since 1.1.0
 	 */
 	public boolean equalsName(Unit unit) {
 		return name.equalsIgnoreCase(unit.getName());

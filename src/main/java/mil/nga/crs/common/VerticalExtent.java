@@ -70,6 +70,7 @@ public class VerticalExtent {
 	 *            minimum height
 	 * @param maximumHeight
 	 *            maximum height
+	 * @since 1.1.0
 	 */
 	public VerticalExtent(String minimumHeight, String maximumHeight) {
 		this(minimumHeight, maximumHeight, null);
@@ -101,6 +102,7 @@ public class VerticalExtent {
 	 *            maximum height
 	 * @param unit
 	 *            unit (length)
+	 * @since 1.1.0
 	 */
 	public VerticalExtent(String minimumHeight, String maximumHeight,
 			Unit unit) {
@@ -122,6 +124,7 @@ public class VerticalExtent {
 	 * Get the minimum height text
 	 * 
 	 * @return minimum height text
+	 * @since 1.1.0
 	 */
 	public String getMinimumHeightText() {
 		return minimumHeightText;
@@ -143,6 +146,7 @@ public class VerticalExtent {
 	 * 
 	 * @param minimumHeight
 	 *            minimum height
+	 * @since 1.1.0
 	 */
 	public void setMinimumHeight(String minimumHeight) {
 		this.minimumHeightText = minimumHeight;
@@ -162,6 +166,7 @@ public class VerticalExtent {
 	 * Get the maximum height text
 	 * 
 	 * @return maximum height text
+	 * @since 1.1.0
 	 */
 	public String getMaximumHeightText() {
 		return maximumHeightText;
@@ -183,6 +188,7 @@ public class VerticalExtent {
 	 * 
 	 * @param maximumHeight
 	 *            maximum height
+	 * @since 1.1.0
 	 */
 	public void setMaximumHeight(String maximumHeight) {
 		this.maximumHeightText = maximumHeight;

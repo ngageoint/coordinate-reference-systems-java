@@ -168,6 +168,7 @@ public class TemporalDatum implements Identifiable {
 	 * 
 	 * @param originDateTime
 	 *            origin date time
+	 * @since 1.1.0
 	 */
 	public void setOriginDateTime(DateTime originDateTime) {
 		this.originDateTime = originDateTime;

@@ -3818,6 +3818,7 @@ public class CRSReader implements Closeable {
 	 * @return operation accuracy
 	 * @throws IOException
 	 *             upon failure to read
+	 * @since 1.1.0
 	 */
 	public String readAccuracyText() throws IOException {
 

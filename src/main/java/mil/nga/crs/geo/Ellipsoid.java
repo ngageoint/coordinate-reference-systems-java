@@ -92,6 +92,7 @@ public class Ellipsoid implements Identifiable {
 	 *            semi major axis
 	 * @param inverseFlattening
 	 *            inverse flattening
+	 * @since 1.1.0
 	 */
 	public Ellipsoid(String name, String semiMajorAxis,
 			String inverseFlattening) {
@@ -141,6 +142,7 @@ public class Ellipsoid implements Identifiable {
 	 * Get the semi major axis text
 	 * 
 	 * @return semi major axis text
+	 * @since 1.1.0
 	 */
 	public String getSemiMajorAxisText() {
 		return semiMajorAxisText;
@@ -162,6 +164,7 @@ public class Ellipsoid implements Identifiable {
 	 * 
 	 * @param semiMajorAxis
 	 *            semi major axis
+	 * @since 1.1.0
 	 */
 	public void setSemiMajorAxis(String semiMajorAxis) {
 		this.semiMajorAxisText = semiMajorAxis;
@@ -181,6 +184,7 @@ public class Ellipsoid implements Identifiable {
 	 * Get the inverse flattening text
 	 * 
 	 * @return inverse flattening text
+	 * @since 1.1.0
 	 */
 	public String getInverseFlatteningText() {
 		return inverseFlatteningText;
@@ -202,6 +206,7 @@ public class Ellipsoid implements Identifiable {
 	 * 
 	 * @param inverseFlattening
 	 *            inverse flattening
+	 * @since 1.1.0
 	 */
 	public void setInverseFlattening(String inverseFlattening) {
 		this.inverseFlatteningText = inverseFlattening;
@@ -302,6 +307,7 @@ public class Ellipsoid implements Identifiable {
 	 * Get the pole radius
 	 *
 	 * @return pole radius
+	 * @since 1.1.0
 	 */
 	public double getPoleRadius() {
 		double poleRadius;
@@ -319,6 +325,7 @@ public class Ellipsoid implements Identifiable {
 	 * Get the pole radius text
 	 *
 	 * @return pole radius text
+	 * @since 1.1.0
 	 */
 	public String getPoleRadiusText() {
 		String poleRadius;

@@ -30,9 +30,10 @@ import mil.nga.crs.wkt.CRSKeyword;
 import mil.nga.crs.wkt.CRSReader;
 
 /**
- * CRS to proj4 parser
+ * CRS to PROJ parser
  * 
  * @author osbornb
+ * @since 1.1.0
  */
 public class ProjParser {
 
@@ -62,7 +63,7 @@ public class ProjParser {
 	private static final String utmZoneName = "utm zone";
 
 	/**
-	 * Parse crs well-known text into proj4 params
+	 * Parse crs well-known text into PROJ params
 	 *
 	 * @param wkt
 	 *            crs well-known text
@@ -83,7 +84,7 @@ public class ProjParser {
 	}
 
 	/**
-	 * Parse crs well-known text into proj4 params text
+	 * Parse crs well-known text into PROJ params text
 	 *
 	 * @param wkt
 	 *            crs well-known text
@@ -96,7 +97,7 @@ public class ProjParser {
 	}
 
 	/**
-	 * Convert a CRS object into proj4 params
+	 * Convert a CRS object into PROJ params
 	 *
 	 * @param crs
 	 *            CRS object
@@ -130,7 +131,7 @@ public class ProjParser {
 	}
 
 	/**
-	 * Convert a CRS object into proj4 params text
+	 * Convert a CRS object into PROJ params text
 	 *
 	 * @param crs
 	 *            CRS object
@@ -141,7 +142,7 @@ public class ProjParser {
 	}
 
 	/**
-	 * Convert a geodetic or geographic crs into proj4 params
+	 * Convert a geodetic or geographic crs into PROJ params
 	 *
 	 * @param geo
 	 *            geodetic or geographic crs
@@ -166,7 +167,7 @@ public class ProjParser {
 	}
 
 	/**
-	 * Convert a geodetic or geographic crs into proj4 params text
+	 * Convert a geodetic or geographic crs into PROJ params text
 	 *
 	 * @param geo
 	 *            geodetic or geographic crs
@@ -177,7 +178,7 @@ public class ProjParser {
 	}
 
 	/**
-	 * Convert a projected crs into proj4 params
+	 * Convert a projected crs into PROJ params
 	 *
 	 * @param projected
 	 *            projected crs
@@ -209,7 +210,7 @@ public class ProjParser {
 	}
 
 	/**
-	 * Convert a projected crs into proj4 params text
+	 * Convert a projected crs into PROJ params text
 	 *
 	 * @param projected
 	 *            projected crs
@@ -221,7 +222,7 @@ public class ProjParser {
 	}
 
 	/**
-	 * Convert a compound crs into proj4 params
+	 * Convert a compound crs into PROJ params
 	 *
 	 * @param compound
 	 *            compound crs
@@ -247,7 +248,7 @@ public class ProjParser {
 	}
 
 	/**
-	 * Convert a compound crs into proj4 params text
+	 * Convert a compound crs into PROJ params text
 	 *
 	 * @param compound
 	 *            compound crs

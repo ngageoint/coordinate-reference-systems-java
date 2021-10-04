@@ -11,6 +11,7 @@ import mil.nga.crs.CRSException;
  * Common Ellipsoids
  * 
  * @author osbornb
+ * @since 1.1.0
  */
 public enum Ellipsoids {
 

@@ -4,6 +4,7 @@ package mil.nga.crs.util.proj;
  * Projection constants
  * 
  * @author osbornb
+ * @since 1.1.0
  */
 public class ProjConstants {
 

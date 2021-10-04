@@ -1,9 +1,10 @@
 package mil.nga.crs.util.proj;
 
 /**
- * proj4 params
+ * PROJ params
  * 
  * @author osbornb
+ * @since 1.1.0
  */
 public class ProjParams {
 
@@ -1140,7 +1141,7 @@ public class ProjParams {
 			value.append(y_0);
 		}
 		if (axis != null && axis.equals(axisWestSouthUp)) {
-			// Only known proj4 axis specification is wsu
+			// Only known PROJ axis specification is wsu
 			value.append(" +");
 			value.append(ProjConstants.PARAM_AXIS);
 			value.append("=");

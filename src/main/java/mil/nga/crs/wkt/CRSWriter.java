@@ -2372,6 +2372,7 @@ public class CRSWriter implements Closeable {
 	 *            operation accuracy
 	 * @throws IOException
 	 *             upon failure to write
+	 * @since 1.1.0
 	 */
 	public void writeAccuracy(String accuracy) throws IOException {
 

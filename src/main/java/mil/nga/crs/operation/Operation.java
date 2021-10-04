@@ -117,6 +117,7 @@ public abstract class Operation extends CommonCRS {
 	 * Get the coordinate operation accuracy text
 	 * 
 	 * @return coordinate operation accuracy text
+	 * @since 1.1.0
 	 */
 	public String getAccuracyText() {
 		return accuracyText;
@@ -147,6 +148,7 @@ public abstract class Operation extends CommonCRS {
 	 * 
 	 * @param accuracy
 	 *            coordinate operation accuracy
+	 * @since 1.1.0
 	 */
 	public void setAccuracy(String accuracy) {
 		this.accuracyText = accuracy;

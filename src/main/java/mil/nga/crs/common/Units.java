@@ -9,6 +9,7 @@ import mil.nga.crs.CRSException;
  * Common Units
  * 
  * @author osbornb
+ * @since 1.1.0
  */
 public enum Units {
 

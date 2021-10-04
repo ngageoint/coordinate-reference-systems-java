@@ -76,6 +76,7 @@ public class PrimeMeridian implements Identifiable {
 	 *            name
 	 * @param longitude
 	 *            International Reference Meridian longitude
+	 * @since 1.1.0
 	 */
 	public PrimeMeridian(String name, String longitude) {
 		setName(name);
@@ -114,6 +115,7 @@ public class PrimeMeridian implements Identifiable {
 	 * Get the International Reference Meridian longitude text
 	 * 
 	 * @return International Reference Meridian longitude text
+	 * @since 1.1.0
 	 */
 	public String getLongitudeText() {
 		return longitudeText;
@@ -135,6 +137,7 @@ public class PrimeMeridian implements Identifiable {
 	 * 
 	 * @param longitude
 	 *            International Reference Meridian longitude
+	 * @since 1.1.0
 	 */
 	public void setLongitude(String longitude) {
 		this.longitudeText = longitude;

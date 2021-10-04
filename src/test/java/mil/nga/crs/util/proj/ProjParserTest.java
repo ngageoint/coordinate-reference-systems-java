@@ -7,7 +7,7 @@ import java.io.IOException;
 import org.junit.Test;
 
 /**
- * CRS to proj4 parser tests
+ * CRS to PROJ parser tests
  * 
  * @author osbornb
  */

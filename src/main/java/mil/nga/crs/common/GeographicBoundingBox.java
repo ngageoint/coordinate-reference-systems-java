@@ -98,6 +98,7 @@ public class GeographicBoundingBox {
 	 *            upper right latitude
 	 * @param upperRightLongitude
 	 *            upper right longitude
+	 * @since 1.1.0
 	 */
 	public GeographicBoundingBox(String lowerLeftLatitude,
 			String lowerLeftLongitude, String upperRightLatitude,
@@ -121,6 +122,7 @@ public class GeographicBoundingBox {
 	 * Get the lower left latitude text
 	 * 
 	 * @return lower left latitude text
+	 * @since 1.1.0
 	 */
 	public String getLowerLeftLatitudeText() {
 		return lowerLeftLatitudeText;
@@ -142,6 +144,7 @@ public class GeographicBoundingBox {
 	 * 
 	 * @param lowerLeftLatitude
 	 *            lower left latitude
+	 * @since 1.1.0
 	 */
 	public void setLowerLeftLatitude(String lowerLeftLatitude) {
 		this.lowerLeftLatitudeText = lowerLeftLatitude;
@@ -161,6 +164,7 @@ public class GeographicBoundingBox {
 	 * Get the lower left longitude text
 	 * 
 	 * @return lower left longitude text
+	 * @since 1.1.0
 	 */
 	public String getLowerLeftLongitudeText() {
 		return lowerLeftLongitudeText;
@@ -182,6 +186,7 @@ public class GeographicBoundingBox {
 	 * 
 	 * @param lowerLeftLongitude
 	 *            lower left longitude
+	 * @since 1.1.0
 	 */
 	public void setLowerLeftLongitude(String lowerLeftLongitude) {
 		this.lowerLeftLongitudeText = lowerLeftLongitude;
@@ -201,6 +206,7 @@ public class GeographicBoundingBox {
 	 * Set the upper right latitude text
 	 * 
 	 * @return upper right latitude text
+	 * @since 1.1.0
 	 */
 	public String getUpperRightLatitudeText() {
 		return upperRightLatitudeText;
@@ -222,6 +228,7 @@ public class GeographicBoundingBox {
 	 * 
 	 * @param upperRightLatitude
 	 *            upper right latitude
+	 * @since 1.1.0
 	 */
 	public void setUpperRightLatitude(String upperRightLatitude) {
 		this.upperRightLatitudeText = upperRightLatitude;
@@ -241,6 +248,7 @@ public class GeographicBoundingBox {
 	 * Set the upper right longitude text
 	 * 
 	 * @return upper right longitude text
+	 * @since 1.1.0
 	 */
 	public String getUpperRightLongitudeText() {
 		return upperRightLongitudeText;
@@ -262,6 +270,7 @@ public class GeographicBoundingBox {
 	 * 
 	 * @param upperRightLongitude
 	 *            upper right longitude
+	 * @since 1.1.0
 	 */
 	public void setUpperRightLongitude(String upperRightLongitude) {
 		this.upperRightLongitudeText = upperRightLongitude;

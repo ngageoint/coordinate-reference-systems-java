@@ -63,6 +63,7 @@ public class Dynamic implements Identifiable {
 	 * 
 	 * @param referenceEpoch
 	 *            reference epoch
+	 * @since 1.1.0
 	 */
 	public Dynamic(String referenceEpoch) {
 		setReferenceEpoch(referenceEpoch);
@@ -81,6 +82,7 @@ public class Dynamic implements Identifiable {
 	 * Get the reference epoch text
 	 * 
 	 * @return reference epoch text
+	 * @since 1.1.0
 	 */
 	public String getReferenceEpochText() {
 		return referenceEpochText;
@@ -102,6 +104,7 @@ public class Dynamic implements Identifiable {
 	 * 
 	 * @param referenceEpoch
 	 *            reference epoch
+	 * @since 1.1.0
 	 */
 	public void setReferenceEpoch(String referenceEpoch) {
 		this.referenceEpochText = referenceEpoch;

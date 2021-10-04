@@ -183,6 +183,7 @@ public class Axis implements Identifiable {
 	 * Get the meridian text
 	 * 
 	 * @return meridian text
+	 * @since 1.1.0
 	 */
 	public String getMeridianText() {
 		return meridianText;
@@ -213,6 +214,7 @@ public class Axis implements Identifiable {
 	 * 
 	 * @param meridian
 	 *            meridian
+	 * @since 1.1.0
 	 */
 	public void setMeridian(String meridian) {
 		this.meridianText = meridian;
@@ -251,6 +253,7 @@ public class Axis implements Identifiable {
 	 * Get the bearing text
 	 * 
 	 * @return bearing text
+	 * @since 1.1.0
 	 */
 	public String getBearingText() {
 		return bearingText;
@@ -281,6 +284,7 @@ public class Axis implements Identifiable {
 	 * 
 	 * @param bearing
 	 *            bearing text
+	 * @since 1.1.0
 	 */
 	public void setBearing(String bearing) {
 		this.bearingText = bearing;

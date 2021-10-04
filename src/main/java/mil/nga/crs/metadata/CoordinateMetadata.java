@@ -68,6 +68,7 @@ public class CoordinateMetadata extends CRS {
 	 *            coordinate reference system
 	 * @param epoch
 	 *            coordinate epoch
+	 * @since 1.1.0
 	 */
 	public CoordinateMetadata(CoordinateReferenceSystem crs, String epoch) {
 		this(crs);
@@ -106,6 +107,7 @@ public class CoordinateMetadata extends CRS {
 	 * Get the coordinate epoch text
 	 * 
 	 * @return coordinate epoch text
+	 * @since 1.1.0
 	 */
 	public String getEpochText() {
 		return epochText;
@@ -136,6 +138,7 @@ public class CoordinateMetadata extends CRS {
 	 * 
 	 * @param epoch
 	 *            coordinate epoch
+	 * @since 1.1.0
 	 */
 	public void setEpoch(String epoch) {
 		this.epochText = epoch;

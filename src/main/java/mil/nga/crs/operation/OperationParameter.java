@@ -104,6 +104,7 @@ public class OperationParameter implements Identifiable {
 	 *            value
 	 * @param unit
 	 *            unit
+	 * @since 1.1.0
 	 */
 	public OperationParameter(String name, String value, Unit unit) {
 		this.name = name;
@@ -131,6 +132,7 @@ public class OperationParameter implements Identifiable {
 	 *            operation parameter
 	 * @param value
 	 *            value
+	 * @since 1.1.0
 	 */
 	public OperationParameter(OperationParameters parameter, String value) {
 		this(parameter, value, null);
@@ -163,6 +165,7 @@ public class OperationParameter implements Identifiable {
 	 *            value
 	 * @param unit
 	 *            unit
+	 * @since 1.1.0
 	 */
 	public OperationParameter(OperationParameters parameter, String value,
 			Unit unit) {
@@ -219,6 +222,7 @@ public class OperationParameter implements Identifiable {
 	 * Get the value text
 	 * 
 	 * @return value text
+	 * @since 1.1.0
 	 */
 	public String getValueText() {
 		return valueText;
@@ -240,6 +244,7 @@ public class OperationParameter implements Identifiable {
 	 * 
 	 * @param value
 	 *            value
+	 * @since 1.1.0
 	 */
 	public void setValue(String value) {
 		this.valueText = value;

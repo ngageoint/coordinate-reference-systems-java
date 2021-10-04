@@ -79,6 +79,7 @@ public abstract class DatumEnsemble implements Identifiable {
 	 *            member
 	 * @param accuracy
 	 *            accuracy
+	 * @since 1.1.0
 	 */
 	public DatumEnsemble(String name, DatumEnsembleMember member,
 			String accuracy) {
@@ -113,6 +114,7 @@ public abstract class DatumEnsemble implements Identifiable {
 	 *            members
 	 * @param accuracy
 	 *            accuracy
+	 * @since 1.1.0
 	 */
 	public DatumEnsemble(String name, List<DatumEnsembleMember> members,
 			String accuracy) {
@@ -212,6 +214,7 @@ public abstract class DatumEnsemble implements Identifiable {
 	 * Get the accuracy text
 	 * 
 	 * @return accuracy text
+	 * @since 1.1.0
 	 */
 	public String getAccuracyText() {
 		return accuracyText;
@@ -233,6 +236,7 @@ public abstract class DatumEnsemble implements Identifiable {
 	 * 
 	 * @param accuracy
 	 *            accuracy
+	 * @since 1.1.0
 	 */
 	public void setAccuracy(String accuracy) {
 		this.accuracyText = accuracy;

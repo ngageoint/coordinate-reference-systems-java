@@ -9,6 +9,7 @@ import java.util.Map;
  * Common Geo Datums
  * 
  * @author osbornb
+ * @since 1.1.0
  */
 public enum GeoDatums {
 

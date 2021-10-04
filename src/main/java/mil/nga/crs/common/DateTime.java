@@ -429,6 +429,7 @@ public class DateTime {
 	 * Get the fraction text
 	 * 
 	 * @return fraction text
+	 * @since 1.1.0
 	 */
 	public String getFractionText() {
 		return fractionText;
@@ -460,6 +461,7 @@ public class DateTime {
 	 * 
 	 * @param fraction
 	 *            fraction
+	 * @since 1.1.0
 	 */
 	public void setFraction(String fraction) {
 		Double value = fraction != null ? Double.parseDouble(fraction) : null;
