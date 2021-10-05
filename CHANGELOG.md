@@ -11,6 +11,7 @@ Adheres to [Semantic Versioning](http://semver.org/).
 * Common Geo Datums, Ellipsoids, and Prime Meridians
 * Additional common Operation Method aliases
 * Temporal Datum method name correction, setOriginDateTime, previously setStartDateTime
+* Unit conversions for backwards compatible base unit types
 
 ## [1.0.0](https://github.com/ngageoint/coordinate-reference-systems-java/releases/tag/1.0.0) (06-24-2021)
 

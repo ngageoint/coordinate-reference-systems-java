@@ -343,7 +343,9 @@ public enum Units {
 	 */
 	public static boolean canConvert(Unit unit1, Unit unit2) {
 		return unit1 != null && unit2 != null
-				&& unit1.getType() == unit2.getType()
+				&& (unit1.getType() == unit2.getType()
+						|| unit1.getType() == UnitType.UNIT
+						|| unit2.getType() == UnitType.UNIT)
 				&& unit1.hasConversionFactor() && unit2.hasConversionFactor();
 	}
 
@@ -361,7 +363,8 @@ public enum Units {
 	 */
 	public static double convert(double value, Unit from, Unit to) {
 
-		if (from.getType() != to.getType()) {
+		if (from.getType() != to.getType() && from.getType() != UnitType.UNIT
+				&& to.getType() != UnitType.UNIT) {
 			throw new CRSException("Can't convert value '" + value
 					+ "' from unit type " + from.getType().name()
 					+ " to unit type " + to.getType().name());
