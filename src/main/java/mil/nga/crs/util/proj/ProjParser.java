@@ -38,31 +38,6 @@ import mil.nga.crs.wkt.CRSReader;
 public class ProjParser {
 
 	/**
-	 * Pseudo Mercator name check
-	 */
-	private static final String pseudoMercatorNameCheck = "pseudo";
-
-	/**
-	 * Degree Unit name check
-	 */
-	private static final String degreeUnitNameCheck = "deg";
-
-	/**
-	 * Swiss Oblique Mercator name
-	 */
-	private static final String swissObliqueMercatorName = "swiss oblique mercator";
-
-	/**
-	 * Swiis Oblique Mercator backward compatible name
-	 */
-	private static final String swissObliqueMercatorCompatName = "hotine_oblique_mercator_azimuth_center";
-
-	/**
-	 * UTM Zone name
-	 */
-	private static final String utmZoneName = "utm zone";
-
-	/**
 	 * Parse crs well-known text into PROJ params
 	 *
 	 * @param wkt
@@ -321,7 +296,7 @@ public class ProjParser {
 		if (commonGeoDatum == GeoDatums.WGS84 && method.hasMethod() && method
 				.getMethod() == OperationMethods.POPULAR_VISUALISATION_PSEUDO_MERCATOR
 				&& mapProjection.getName().toLowerCase()
-						.contains(pseudoMercatorNameCheck)) {
+						.contains(ProjConstants.PSEUDO_MERCATOR)) {
 			updateSphericalEllipsoid(params,
 					geoDatum.getEllipsoid().getSemiMajorAxisText());
 		} else {
@@ -524,8 +499,9 @@ public class ProjParser {
 		Unit unit = coordinateSystem.getAxisUnit();
 
 		if (unit != null && (unit.getType() == UnitType.ANGLEUNIT
-				|| (unit.getType() == UnitType.UNIT && unit.getName()
-						.toLowerCase().startsWith(degreeUnitNameCheck)))) {
+				|| (unit.getType() == UnitType.UNIT
+						&& unit.getName().toLowerCase()
+								.startsWith(ProjConstants.UNITS_DEGREE)))) {
 			params.setProj(ProjConstants.NAME_LONGLAT);
 		} else {
 			params.setProj(ProjConstants.NAME_MERC);
@@ -574,9 +550,9 @@ public class ProjParser {
 
 			case HOTINE_OBLIQUE_MERCATOR_B:
 				if (mapProjection.getName().toLowerCase()
-						.contains(swissObliqueMercatorName)
-						|| method.getName().toLowerCase()
-								.contains(swissObliqueMercatorCompatName)) {
+						.contains(ProjConstants.SWISS_OBLIQUE_MERCATOR)
+						|| method.getName().toLowerCase().contains(
+								ProjConstants.SWISS_OBLIQUE_MERCATOR_COMPAT)) {
 					params.setProj(ProjConstants.NAME_SOMERC);
 				} else {
 					params.setProj(ProjConstants.NAME_OMERC);
@@ -626,7 +602,7 @@ public class ProjParser {
 			case TRANSVERSE_MERCATOR:
 			case TRANSVERSE_MERCATOR_SOUTH_ORIENTATED:
 				if (mapProjection.getName().toLowerCase()
-						.contains(utmZoneName)) {
+						.contains(ProjConstants.UTM_ZONE)) {
 					params.setProj(ProjConstants.NAME_UTM);
 				} else {
 					params.setProj(ProjConstants.NAME_TMERC);
@@ -729,9 +705,10 @@ public class ProjParser {
 			MapProjection mapProjection, Unit unit) {
 
 		String name = mapProjection.getName();
-		int index = name.toLowerCase().indexOf(utmZoneName);
+		int index = name.toLowerCase().indexOf(ProjConstants.UTM_ZONE);
 		if (index > -1) {
-			String utm = name.substring(index + utmZoneName.length()).trim();
+			String utm = name.substring(index + ProjConstants.UTM_ZONE.length())
+					.trim();
 			String[] parts = utm.split("\\s+");
 			boolean south = false;
 			if (parts.length > 0) {

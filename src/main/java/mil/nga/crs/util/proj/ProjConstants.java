@@ -259,6 +259,12 @@ public class ProjConstants {
 	public static final String AXIS_DOWN = "d";
 
 	/**
+	 * Axis West South Up
+	 */
+	public static final String AXIS_WEST_SOUTH_UP = AXIS_WEST + AXIS_SOUTH
+			+ AXIS_UP;
+
+	/**
 	 * metre units
 	 */
 	public static final String UNITS_METRE = "m";
@@ -272,5 +278,30 @@ public class ProjConstants {
 	 * foot units
 	 */
 	public static final String UNITS_FOOT = "ft";
+
+	/**
+	 * degree units
+	 */
+	public static final String UNITS_DEGREE = "deg";
+
+	/**
+	 * Pseudo Mercator name identifier
+	 */
+	public static final String PSEUDO_MERCATOR = "pseudo";
+
+	/**
+	 * Swiss Oblique Mercator name
+	 */
+	public static final String SWISS_OBLIQUE_MERCATOR = "swiss oblique mercator";
+
+	/**
+	 * Swiis Oblique Mercator backward compatible name
+	 */
+	public static final String SWISS_OBLIQUE_MERCATOR_COMPAT = "hotine_oblique_mercator_azimuth_center";
+
+	/**
+	 * UTM Zone name
+	 */
+	public static final String UTM_ZONE = "utm zone";
 
 }

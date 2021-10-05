@@ -9,12 +9,6 @@ package mil.nga.crs.util.proj;
 public class ProjParams {
 
 	/**
-	 * Axis West South Up
-	 */
-	private static final String axisWestSouthUp = ProjConstants.AXIS_WEST
-			+ ProjConstants.AXIS_SOUTH + ProjConstants.AXIS_UP;
-
-	/**
 	 * proj param
 	 */
 	private String proj;
@@ -1140,7 +1134,7 @@ public class ProjParams {
 			value.append("=");
 			value.append(y_0);
 		}
-		if (axis != null && axis.equals(axisWestSouthUp)) {
+		if (axis != null && axis.equals(ProjConstants.AXIS_WEST_SOUTH_UP)) {
 			// Only known PROJ axis specification is wsu
 			value.append(" +");
 			value.append(ProjConstants.PARAM_AXIS);
