@@ -323,7 +323,7 @@ public class ProjParser {
 				&& mapProjection.getName().toLowerCase()
 						.contains(pseudoMercatorNameCheck)) {
 			updateSphericalEllipsoid(params,
-					geoDatum.getEllipsoid().getSemiMajorAxis());
+					geoDatum.getEllipsoid().getSemiMajorAxisText());
 		} else {
 			params.setDatum(commonGeoDatum.getCode());
 		}
@@ -384,7 +384,7 @@ public class ProjParser {
 	 *            radius
 	 */
 	private static void updateSphericalEllipsoid(ProjParams params,
-			double radius) {
+			String radius) {
 		params.setA(radius);
 		params.setB(radius);
 	}
@@ -410,7 +410,7 @@ public class ProjParser {
 	 * @param params
 	 *            projection params
 	 * @param toWGS84
-	 *            to WGS84 double array
+	 *            to WGS84 array
 	 */
 	private static void updateDatumTransform(ProjParams params,
 			String[] toWGS84) {
@@ -692,7 +692,7 @@ public class ProjParser {
 
 				if (params.getUnits() == null && unit.hasConversionFactor()
 						&& unit.getConversionFactor() != 1.0) {
-					params.setToMeter(unit.getConversionFactor());
+					params.setToMeter(unit.getConversionFactorText());
 				}
 
 			}
@@ -1117,7 +1117,7 @@ public class ProjParser {
 			fromUnit = Units.createDefaultUnit(toUnit.getType());
 		}
 
-		if (Units.canConvert(fromUnit, toUnit)
+		if (value != 0.0 && Units.canConvert(fromUnit, toUnit)
 				&& !fromUnit.equalsName(toUnit)) {
 			value = Units.convert(value, fromUnit, toUnit);
 			textValue = String.valueOf(value);
