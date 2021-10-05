@@ -115,6 +115,21 @@ case OPERATION:
 
 ```
 
+#### PROJ ####
+
+```java
+
+// String wkt = ...
+
+CRS crs = CRSReader.read(wkt);
+
+ProjParams projParamsFromCRS = ProjParser.params(crs);
+String projTextFromCRS = ProjParser.paramsText(crs);
+ProjParams projParamsFromWKT = ProjParser.params(wkt);
+String projTextFromWKT = ProjParser.paramsText(wkt);
+
+```
+
 ### Installation ###
 
 Pull from the [Maven Central Repository](http://search.maven.org/#artifactdetails|mil.nga|crs|1.0.0|jar) (JAR, POM, Source, Javadoc)

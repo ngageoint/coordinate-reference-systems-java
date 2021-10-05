@@ -18,6 +18,8 @@ import mil.nga.crs.operation.PointMotionOperation;
 import mil.nga.crs.parametric.ParametricCoordinateReferenceSystem;
 import mil.nga.crs.projected.ProjectedCoordinateReferenceSystem;
 import mil.nga.crs.temporal.TemporalCoordinateReferenceSystem;
+import mil.nga.crs.util.proj.ProjParams;
+import mil.nga.crs.util.proj.ProjParser;
 import mil.nga.crs.vertical.VerticalCoordinateReferenceSystem;
 import mil.nga.crs.wkt.CRSReader;
 import mil.nga.crs.wkt.CRSWriter;
@@ -51,7 +53,10 @@ public class ReadmeTest {
 				+ "AXIS[\"Geodetic latitude (Lat)\",north],AXIS[\"Geodetic longitude (Lon)\",east],"
 				+ "ANGLEUNIT[\"degree\",0.0174532925199433,ID[\"EPSG\",9102]],"
 				+ "ID[\"EPSG\",4326]]";
+
 		assertEquals(wkt, testCRS(wkt));
+
+		assertEquals("+proj=longlat +datum=WGS84 +no_defs", testProj(wkt));
 
 	}
 
@@ -159,6 +164,29 @@ public class ReadmeTest {
 		}
 
 		return text;
+	}
+
+	/**
+	 * Test proj
+	 *
+	 * @param wkt
+	 *            crs well-known text
+	 * @return PROJ text
+	 * @throws IOException
+	 *             upon failure
+	 */
+	private String testProj(String wkt) throws IOException {
+
+		// String wkt = ...
+
+		CRS crs = CRSReader.read(wkt);
+
+		ProjParams projParamsFromCRS = ProjParser.params(crs);
+		String projTextFromCRS = ProjParser.paramsText(crs);
+		ProjParams projParamsFromWKT = ProjParser.params(wkt);
+		String projTextFromWKT = ProjParser.paramsText(wkt);
+
+		return projTextFromWKT;
 	}
 
 }
