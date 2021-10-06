@@ -287,6 +287,23 @@ public enum Units {
 	}
 
 	/**
+	 * Get the unit type from the name
+	 * 
+	 * @param name
+	 *            unit name
+	 * @return units type
+	 * @since 1.1.0
+	 */
+	public static UnitType getUnitType(String name) {
+		UnitType type = null;
+		Units unit = fromName(name);
+		if (unit != null) {
+			type = unit.getType();
+		}
+		return type;
+	}
+
+	/**
 	 * Get the default unit for the unit type
 	 * 
 	 * @param type
