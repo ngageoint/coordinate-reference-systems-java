@@ -413,46 +413,50 @@ public class ProjParser {
 	private static void updateDatumTransform(ProjParams params,
 			OperationMethod method) {
 
-		for (OperationParameter parameter : method.getParameters()) {
+		if (method.hasParameters()) {
 
-			if (parameter.hasParameter()) {
+			for (OperationParameter parameter : method.getParameters()) {
 
-				switch (parameter.getParameter()) {
+				if (parameter.hasParameter()) {
 
-				case X_AXIS_TRANSLATION:
-					params.setXTranslation(value(parameter, Units.METRE));
-					break;
+					switch (parameter.getParameter()) {
 
-				case Y_AXIS_TRANSLATION:
-					params.setYTranslation(value(parameter, Units.METRE));
-					break;
+					case X_AXIS_TRANSLATION:
+						params.setXTranslation(value(parameter, Units.METRE));
+						break;
 
-				case Z_AXIS_TRANSLATION:
-					params.setZTranslation(value(parameter, Units.METRE));
-					break;
+					case Y_AXIS_TRANSLATION:
+						params.setYTranslation(value(parameter, Units.METRE));
+						break;
 
-				case X_AXIS_ROTATION:
-					params.setXRotation(value(parameter, Units.ARC_SECOND));
-					break;
+					case Z_AXIS_TRANSLATION:
+						params.setZTranslation(value(parameter, Units.METRE));
+						break;
 
-				case Y_AXIS_ROTATION:
-					params.setYRotation(value(parameter, Units.ARC_SECOND));
-					break;
+					case X_AXIS_ROTATION:
+						params.setXRotation(value(parameter, Units.ARC_SECOND));
+						break;
 
-				case Z_AXIS_ROTATION:
-					params.setZRotation(value(parameter, Units.ARC_SECOND));
-					break;
+					case Y_AXIS_ROTATION:
+						params.setYRotation(value(parameter, Units.ARC_SECOND));
+						break;
 
-				case SCALE_DIFFERENCE:
-					params.setScaleDifference(
-							value(parameter, Units.PARTS_PER_MILLION));
-					break;
+					case Z_AXIS_ROTATION:
+						params.setZRotation(value(parameter, Units.ARC_SECOND));
+						break;
 
-				default:
-					break;
+					case SCALE_DIFFERENCE:
+						params.setScaleDifference(
+								value(parameter, Units.PARTS_PER_MILLION));
+						break;
 
+					default:
+						break;
+
+					}
 				}
 			}
+
 		}
 
 	}
