@@ -72,8 +72,8 @@ public enum GeoDatums {
 	/**
 	 * Ordnance Survey of Great Britain 1936
 	 */
-	OSEB36("OSGB36", 446.448, -125.157, 542.060, 0.1502, 0.2470, 0.8421,
-			-20.4894, Ellipsoids.AIRY, "Airy 1830", "OSGB 1936",
+	OSGB36("OSGB36", 446.448, -125.157, 542.06, 0.15, 0.247, 0.842, -20.489,
+			Ellipsoids.AIRY, "Airy 1830", "OSGB 1936",
 			"Ordnance Survey of Great Britain 1936");
 
 	/**
