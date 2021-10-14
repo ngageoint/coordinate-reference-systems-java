@@ -9,5 +9,6 @@ mil.nga.crs.operation
 mil.nga.crs.parametric
 mil.nga.crs.projected
 mil.nga.crs.temporal
+mil.nga.crs.util.proj
 mil.nga.crs.vertical
 mil.nga.crs.wkt
