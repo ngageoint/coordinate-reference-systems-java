@@ -32,6 +32,13 @@ public enum GeoDatums {
 	NAD83("NAD83", 0, 0, 0, Ellipsoids.GRS80, "North American Datum 1983"),
 
 	/**
+	 * European Terrestrial Reference System 1989 ensemble
+	 */
+	ETRS89("ETRS89", 0, 0, 0, Ellipsoids.GRS80,
+			"European Terrestrial Reference System 1989",
+			"European Terrestrial Reference System 1989 ensemble"),
+
+	/**
 	 * North American Datum 1927
 	 */
 	NAD27("NAD27", Ellipsoids.CLARKE_1866, "North American Datum 1927"),

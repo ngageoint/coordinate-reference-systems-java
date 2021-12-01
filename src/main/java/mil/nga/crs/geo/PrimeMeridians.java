@@ -14,67 +14,67 @@ public enum PrimeMeridians {
 	/**
 	 * Greenwich
 	 */
-	GREENWICH("greenwich", 0),
+	GREENWICH("Greenwich", 0),
 
 	/**
 	 * Lisbon
 	 */
-	LISBON("lisbon", true, 9, 7, 54.862),
+	LISBON("Lisbon", true, 9, 7, 54.862),
 
 	/**
 	 * Paris
 	 */
-	PARIS("paris", false, 2, 20, 14.025),
+	PARIS("Paris", false, 2, 20, 14.025),
 
 	/**
 	 * Bogota
 	 */
-	BOGOTA("bogota", true, 74, 04, 51.3),
+	BOGOTA("Bogota", true, 74, 04, 51.3),
 
 	/**
 	 * Madrid
 	 */
-	MADRID("madrid", true, 3, 41, 16.58),
+	MADRID("Madrid", true, 3, 41, 16.58),
 
 	/**
 	 * Rome
 	 */
-	ROME("rome", false, 12, 27, 8.4),
+	ROME("Rome", false, 12, 27, 8.4),
 
 	/**
 	 * Bern
 	 */
-	BERN("bern", false, 7, 26, 22.5),
+	BERN("Bern", false, 7, 26, 22.5),
 
 	/**
 	 * Jakarta
 	 */
-	JAKARTA("jakarta", false, 106, 48, 27.79),
+	JAKARTA("Jakarta", false, 106, 48, 27.79),
 
 	/**
 	 * Ferro
 	 */
-	FERRO("ferro", true, 17, 40, 0),
+	FERRO("Ferro", true, 17, 40, 0),
 
 	/**
 	 * Brussels
 	 */
-	BRUSSELS("brussels", false, 4, 22, 4.71),
+	BRUSSELS("Brussels", false, 4, 22, 4.71),
 
 	/**
 	 * Stockholm
 	 */
-	STOCKHOLM("stockholm", false, 18, 3, 29.8),
+	STOCKHOLM("Stockholm", false, 18, 3, 29.8),
 
 	/**
 	 * Athens
 	 */
-	ATHENS("athens", false, 23, 42, 58.815),
+	ATHENS("Athens", false, 23, 42, 58.815),
 
 	/**
 	 * Oslo
 	 */
-	OSLO("oslo", false, 10, 43, 22.5);
+	OSLO("Oslo", false, 10, 43, 22.5);
 
 	/**
 	 * Name to prime meridians type mapping

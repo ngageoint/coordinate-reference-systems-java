@@ -269,7 +269,8 @@ public class ProjParser {
 
 		GeoDatums commonGeoDatum = GeoDatums.fromName(geoDatum.getName());
 
-		if (commonGeoDatum != null) {
+		// Check for special cases like EPSG 3035 which specify the ellipsoid
+		if (commonGeoDatum != null && commonGeoDatum != GeoDatums.ETRS89) {
 			updateDatum(params, geoDatum, commonGeoDatum, mapProjection);
 		} else {
 			updateEllipsoid(params, geoDatum.getEllipsoid());
@@ -478,7 +479,7 @@ public class ProjParser {
 					.fromName(primeMeridian.getName());
 			if (commonPrimeMeridian != null) {
 				if (commonPrimeMeridian != PrimeMeridians.GREENWICH) {
-					params.setPm(commonPrimeMeridian.getName());
+					params.setPm(commonPrimeMeridian.getName().toLowerCase());
 				}
 			} else {
 				params.setPm(convert(primeMeridian.getLongitude(),

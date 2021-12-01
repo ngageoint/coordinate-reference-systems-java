@@ -1,6 +1,6 @@
 package mil.nga.crs.geo;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -259,14 +259,8 @@ public enum Ellipsoids {
 			nameTypes.put(type.getShortName().toLowerCase(), type);
 			for (String name : type.getNames()) {
 				String lowercaseName = name.toLowerCase();
-				nameTypes.put(lowercaseName, type);
-				int index = lowercaseName.indexOf("(");
-				if (index > -1) {
-					String namePrefix = lowercaseName.substring(0, index)
-							.trim();
-					if (!nameTypes.containsKey(namePrefix)) {
-						nameTypes.put(namePrefix, type);
-					}
+				if (!nameTypes.containsKey(lowercaseName)) {
+					nameTypes.put(lowercaseName, type);
 				}
 			}
 		}
@@ -275,7 +269,7 @@ public enum Ellipsoids {
 	/**
 	 * Names
 	 */
-	private final List<String> names;
+	private final List<String> names = new ArrayList<>();
 
 	/**
 	 * Short name
@@ -291,6 +285,11 @@ public enum Ellipsoids {
 	 * Pole radius
 	 */
 	private final double poleRadius;
+
+	/**
+	 * Reciprocal flattening
+	 */
+	private final double reciprocalFlattening;
 
 	/**
 	 * Eccentricity
@@ -319,8 +318,16 @@ public enum Ellipsoids {
 	private Ellipsoids(String shortName, double equatorRadius,
 			double poleRadius, double reciprocalFlattening, String... names) {
 		this.shortName = shortName;
-		this.names = Arrays.asList(names);
 		this.equatorRadius = equatorRadius;
+		this.reciprocalFlattening = reciprocalFlattening;
+
+		for (String name : names) {
+			int index = name.indexOf("(");
+			if (index > -1) {
+				this.names.add(name.substring(0, index).trim());
+			}
+			this.names.add(name);
+		}
 
 		if (poleRadius == 0.0 && reciprocalFlattening == 0.0) {
 			throw new CRSException(
@@ -338,28 +345,6 @@ public enum Ellipsoids {
 		}
 		this.poleRadius = poleRadius;
 		this.eccentricity = Math.sqrt(this.eccentricity2);
-	}
-
-	/**
-	 * Constructor
-	 * 
-	 * @param shortName
-	 *            short name
-	 * @param equatorRadius
-	 *            equator radius
-	 * @param eccentricity2
-	 *            eccentricity squared
-	 * @param names
-	 *            names
-	 */
-	private Ellipsoids(String shortName, double equatorRadius,
-			double eccentricity2, String... names) {
-		this.shortName = shortName;
-		this.names = Arrays.asList(names);
-		this.equatorRadius = equatorRadius;
-		this.eccentricity2 = eccentricity2;
-		this.poleRadius = equatorRadius * Math.sqrt(1.0 - eccentricity2);
-		this.eccentricity = Math.sqrt(eccentricity2);
 	}
 
 	/**
@@ -396,6 +381,16 @@ public enum Ellipsoids {
 	 */
 	public double getEquatorRadius() {
 		return equatorRadius;
+	}
+
+	/**
+	 * Get the reciprocal flattening
+	 * 
+	 * @return reciprocal flattening
+	 * @since 1.1.1
+	 */
+	public double getReciprocalFlattening() {
+		return reciprocalFlattening;
 	}
 
 	/**
