@@ -11,6 +11,7 @@ Adheres to [Semantic Versioning](http://semver.org/).
 * Additional included names in Ellipsoids
 * Ellipsoids saved reciprocal flattening value
 * Prime Meridians name capitalizations
+* Prime Meridians offset from greenwich in degrees
 
 ## [1.1.0](https://github.com/ngageoint/coordinate-reference-systems-java/releases/tag/1.1.0) (10-14-2021)
 

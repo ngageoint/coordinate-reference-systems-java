@@ -402,4 +402,35 @@ public enum Units {
 		return value * (from.getConversionFactor() / to.getConversionFactor());
 	}
 
+	/**
+	 * Determine if values can be converted between the two units
+	 * 
+	 * @param unit1
+	 *            first unit
+	 * @param unit2
+	 *            second unit
+	 * @return true if can convert
+	 * @since 1.1.1
+	 */
+	public static boolean canConvert(Units unit1, Units unit2) {
+		return canConvert(unit1.createUnit(), unit2.createUnit());
+	}
+
+	/**
+	 * Convert the value from a unit to a same typed unit, both with conversion
+	 * factors
+	 * 
+	 * @param value
+	 *            value to convert
+	 * @param from
+	 *            unit to convert from
+	 * @param to
+	 *            unit to convert to
+	 * @return converted value
+	 * @since 1.1.1
+	 */
+	public static double convert(double value, Units from, Units to) {
+		return convert(value, from.createUnit(), to.createUnit());
+	}
+
 }

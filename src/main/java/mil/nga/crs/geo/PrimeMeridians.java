@@ -3,6 +3,8 @@ package mil.nga.crs.geo;
 import java.util.HashMap;
 import java.util.Map;
 
+import mil.nga.crs.common.Units;
+
 /**
  * Common Prime Meridians
  * 
@@ -92,7 +94,7 @@ public enum PrimeMeridians {
 	private final String name;
 
 	/**
-	 * Offset from greenwich
+	 * Offset from greenwich in radians
 	 */
 	private final double offsetFromGreenwich;
 
@@ -133,12 +135,21 @@ public enum PrimeMeridians {
 	}
 
 	/**
-	 * Get the offset from greenwich
+	 * Get the offset from greenwich in radians
 	 * 
-	 * @return offset longitude
+	 * @return offset longitude in radians
 	 */
 	public double getOffsetFromGreenwich() {
 		return offsetFromGreenwich;
+	}
+
+	/**
+	 * Get the offset from greenwich in degrees
+	 * 
+	 * @return offset longitude in degrees
+	 */
+	public double getOffsetFromGreenwichDegrees() {
+		return Units.convert(offsetFromGreenwich, Units.RADIAN, Units.DEGREE);
 	}
 
 	/**
