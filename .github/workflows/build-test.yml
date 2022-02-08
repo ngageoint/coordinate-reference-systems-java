@@ -23,8 +23,8 @@ jobs:
       run: mvn clean package
     - name: Copy Release Artifacts
       run: |
-        mkdir target/release
-        cp pom.xml target/*.jar target/release/
+        mkdir release
+        cp pom.xml target/*.jar release/
     - name: Create Pretty
       run: |
         mkdir pretty
@@ -37,4 +37,4 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: coordinate-reference-systems
-        path: target/release
+        path: release
