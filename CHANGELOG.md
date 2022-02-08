@@ -4,6 +4,10 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
+## 1.1.3 (TBD)
+
+* TBD
+
 ## [1.1.2](https://github.com/ngageoint/coordinate-reference-systems-java/releases/tag/1.1.2) (02-08-2022)
 
 * Pretty Well-Known Text and PROJ params main class and command line utility
