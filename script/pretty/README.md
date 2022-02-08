@@ -1,6 +1,6 @@
 # Pretty
 
-[pretty.zip](https://github.com/ngageoint/projections-java/releases/latest/download/pretty.zip)
+[pretty.zip](https://github.com/ngageoint/coordinate-reference-systems-java/releases/latest/download/pretty.zip)
 
 Parse OGC Coordinate Reference System Well-Known Text (1|2) and pretty print Coordinate Reference System Well-Known Text 2 and PROJ params
 
