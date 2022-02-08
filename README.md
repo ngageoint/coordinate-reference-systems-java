@@ -132,14 +132,14 @@ String projTextFromWKT = ProjParser.paramsText(wkt);
 
 ### Installation ###
 
-Pull from the [Maven Central Repository](http://search.maven.org/#artifactdetails|mil.nga|crs|1.1.1|jar) (JAR, POM, Source, Javadoc)
+Pull from the [Maven Central Repository](http://search.maven.org/#artifactdetails|mil.nga|crs|1.1.2|jar) (JAR, POM, Source, Javadoc)
 
 ```xml
 
 <dependency>
     <groupId>mil.nga</groupId>
     <artifactId>crs</artifactId>
-    <version>1.1.1</version>
+    <version>1.1.2</version>
 </dependency>
 
 ```
@@ -151,3 +151,13 @@ Pull from the [Maven Central Repository](http://search.maven.org/#artifactdetail
 Build this repository using Eclipse and/or Maven:
 
     mvn clean install
+
+### Pretty ###
+
+The jar includes a pretty Well-Known Text main class utility that can be run from command line.
+
+Parse OGC Coordinate Reference System Well-Known Text (1|2) and pretty print Coordinate Reference System Well-Known Text 2 and PROJ params. Download [pretty.zip](https://github.com/ngageoint/coordinate-reference-systems-java/releases/latest/download/pretty.zip) and follow the [instructions](script/pretty/).
+
+Or run against the jar:
+
+    java -jar crs-*.jar well-known_text

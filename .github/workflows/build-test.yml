@@ -3,7 +3,7 @@ name: Build & Test
 on:
   push:
     branches:
-      - master
+      - develop
   pull_request:
 
 jobs:
@@ -25,6 +25,14 @@ jobs:
       run: |
         mkdir target/release
         cp pom.xml target/*.jar target/release/
+    - name: Create Pretty
+      run: |
+        mkdir pretty
+        cp script/pretty/* pretty/
+        find target -regex '.*crs-.*[0-9]\.jar' > CRSJAR
+        cp $(cat CRSJAR) pretty/pretty.jar
+        zip -r pretty.zip pretty
+        cp pretty.zip release/
     - name: Upload Artifacts
       uses: actions/upload-artifact@v1
       with:
