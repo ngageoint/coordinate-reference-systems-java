@@ -7,7 +7,8 @@ import mil.nga.crs.CRSException;
 import mil.nga.crs.util.proj.ProjParser;
 
 /**
- * Parse a CRS and pretty print the WKT and PROJ params
+ * Parse OGC Coordinate Reference System Well-Known Text (1|2) and pretty print
+ * Coordinate Reference System Well-Known Text 2 and PROJ params
  * 
  * To run from command line:
  * 
