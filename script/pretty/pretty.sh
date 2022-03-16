@@ -1,4 +1,4 @@
 #!/bin/sh
 set -f
 __dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-java -jar ${__dir}/pretty.jar $*
+java -jar ${__dir}/pretty.jar "$*"
