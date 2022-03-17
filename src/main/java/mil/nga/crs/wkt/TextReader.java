@@ -428,6 +428,7 @@ public class TextReader {
 	 * @param c
 	 *            character
 	 * @return true if token character
+	 * @since 1.1.3
 	 */
 	public static boolean isTokenCharacter(char c) {
 		return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')
@@ -441,6 +442,7 @@ public class TextReader {
 	 * @param c
 	 *            character
 	 * @return true if quote character
+	 * @since 1.1.3
 	 */
 	public static boolean isQuoteCharacter(char c) {
 		boolean quote = c == '"';
@@ -458,6 +460,7 @@ public class TextReader {
 	 * @param c
 	 *            character
 	 * @return true if whitespace
+	 * @since 1.1.3
 	 */
 	public static boolean isWhitespace(char c) {
 		return Character.isWhitespace(c) || Character.isSpaceChar(c);

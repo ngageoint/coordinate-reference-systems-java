@@ -164,6 +164,7 @@ public class CRSPretty {
 	 * @param c
 	 *            character
 	 * @return true if quote character
+	 * @since 1.1.3
 	 */
 	public static boolean isQuoteCharacter(char c) {
 		return c == '\'' || TextReader.isQuoteCharacter(c);
