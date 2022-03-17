@@ -8,11 +8,11 @@ Parse OGC Coordinate Reference System Well-Known Text (1|2) and pretty print Coo
 
 ### Script
 
-    ./pretty.sh well-known_text
+    ./pretty.sh [well-known_text]
 
 ### Jar
 
-    java -jar pretty.jar well-known_text
+    java -jar pretty.jar [well-known_text]
 
 ### Alias
 
@@ -22,7 +22,7 @@ Add an alias to your shell to run from any location
 
 And run
 
-    pretty well-known_text
+    pretty [well-known_text]
 
 ## Examples
 
@@ -53,6 +53,14 @@ Run using the script, Jar, or alias.
       EXTENSION["PROJ4","+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs"],\
       AUTHORITY["EPSG","3857"]]'
 
+    pretty
+    wkt> GEOGCS["WGS 84",DATUM["WGS_1984",SPHEROID["WGS 84",6378137,298.257223563]],PRIMEM["Greenwich",0]]
+
+    wkt> GEOGCS["WGS 84",
+    DATUM["WGS_1984",
+        SPHEROID["WGS 84",6378137,298.257223563]],
+    PRIMEM["Greenwich",0]]
+
 ## Help
 
 ```
@@ -67,4 +75,13 @@ DESCRIPTION
 	well-known_text
 		Coordinate Reference System Well-Known Text
 			Example: 'GEOGCS["WGS 84",DATUM["WGS_1984",SPHEROID["WGS 84",6378137,298.257223563]],PRIMEM["Greenwich",0]]'
+```
+
+### Interactive Session
+
+```
+Enter OGC Coordinate Reference System Well-Known Text
+* Parsing occurs when closing brackets ']' match or exceed opening brackets '['
+
+wkt>
 ```

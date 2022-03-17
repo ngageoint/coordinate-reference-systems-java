@@ -1,6 +1,7 @@
 package mil.nga.crs.wkt;
 
 import java.io.IOException;
+import java.util.Scanner;
 
 import mil.nga.crs.CRS;
 import mil.nga.crs.CRSException;
@@ -27,6 +28,11 @@ public class CRSPretty {
 	private static final String HELP_ARG = "-help";
 
 	/**
+	 * Command prompt
+	 */
+	public static final String COMMAND_PROMPT = "wkt> ";
+
+	/**
 	 * Main method to generate tiles in a GeoPackage
 	 * 
 	 * @param args
@@ -36,22 +42,29 @@ public class CRSPretty {
 	 */
 	public static void main(String[] args) throws IOException {
 
+		boolean help = false;
 		StringBuilder builder = new StringBuilder();
 
-		if (args.length > 0 && !args[0].equalsIgnoreCase(HELP_ARG)) {
+		if (args.length > 0) {
 
-			for (int i = 0; i < args.length; i++) {
+			if (args[0].equalsIgnoreCase(HELP_ARG)) {
+				help = true;
+			} else {
 
-				String[] lines = args[i].trim().split("\n");
+				for (int i = 0; i < args.length; i++) {
 
-				for (int j = 0; j < lines.length; j++) {
+					String[] lines = args[i].trim().split("\n");
 
-					String line = lines[j].trim();
-					if (line.endsWith("\\") || line.endsWith("/")) {
-						line = line.substring(0, line.length() - 1);
+					for (int j = 0; j < lines.length; j++) {
+
+						String line = lines[j].trim();
+						if (line.endsWith("\\") || line.endsWith("/")) {
+							line = line.substring(0, line.length() - 1);
+						}
+
+						builder.append(line);
+
 					}
-
-					builder.append(line);
 
 				}
 
@@ -59,12 +72,94 @@ public class CRSPretty {
 
 		}
 
-		if (builder.length() == 0) {
+		if (help) {
 			printUsage();
+		} else if (builder.length() == 0) {
+			commandPrompt();
 		} else {
 			parseAndPrint(builder.toString());
 		}
 
+	}
+
+	/**
+	 * Command prompt accepting well-known text
+	 */
+	private static void commandPrompt() {
+
+		Scanner scanner = new Scanner(System.in);
+		try {
+			System.out.println();
+			System.out.println(
+					"Enter OGC Coordinate Reference System Well-Known Text");
+			System.out.println(
+					"* Parsing occurs when closing brackets ']' match or exceed opening brackets '['");
+
+			StringBuilder wktBuilder = new StringBuilder();
+			resetCommandPrompt(wktBuilder);
+			int openBrackets = 0;
+			int closeBrackets = 0;
+
+			while (scanner.hasNextLine()) {
+				try {
+					String line = scanner.nextLine().trim();
+					wktBuilder.append(line);
+
+					openBrackets += line.length()
+							- line.replaceAll("\\[", "").length();
+					closeBrackets += line.length()
+							- line.replaceAll("]", "").length();
+
+					if (closeBrackets >= openBrackets && closeBrackets > 0) {
+
+						String wkt = wktBuilder.toString().trim();
+						char firstChar = wkt.charAt(0);
+						char lastChar = wkt.charAt(wkt.length() - 1);
+						if (isQuoteCharacter(firstChar)
+								&& firstChar == lastChar) {
+							wkt = wkt.substring(1, wkt.length() - 1).trim();
+						}
+
+						parseAndPrint(wkt);
+						resetCommandPrompt(wktBuilder);
+
+						openBrackets = 0;
+						closeBrackets = 0;
+
+					}
+
+				} catch (Exception e) {
+					System.out.println(e);
+					resetCommandPrompt(wktBuilder);
+				}
+			}
+		} finally {
+			scanner.close();
+		}
+
+	}
+
+	/**
+	 * Reset the command prompt
+	 * 
+	 * @param builder
+	 *            string builder
+	 */
+	private static void resetCommandPrompt(StringBuilder builder) {
+		builder.setLength(0);
+		System.out.println();
+		System.out.print(COMMAND_PROMPT);
+	}
+
+	/**
+	 * Check if the character is a quote character
+	 * 
+	 * @param c
+	 *            character
+	 * @return true if quote character
+	 */
+	public static boolean isQuoteCharacter(char c) {
+		return c == '\'' || TextReader.isQuoteCharacter(c);
 	}
 
 	/**
@@ -114,7 +209,7 @@ public class CRSPretty {
 			System.out.println("Failed to parse Coordinate Reference System");
 			System.out.println("-------------------------------------------");
 			System.out.println();
-			e.printStackTrace();
+			e.printStackTrace(System.out);
 			System.out.println();
 
 		}

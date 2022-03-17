@@ -8,6 +8,7 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 * CRS Reader ignore non whitespace space characters such as 'NO-BREAK SPACE'
 * CRS Reader error handling while reading separator when no tokens remain
+* Pretty command line utility command prompt session mode
 
 ## [1.1.2](https://github.com/ngageoint/coordinate-reference-systems-java/releases/tag/1.1.2) (02-08-2022)
 

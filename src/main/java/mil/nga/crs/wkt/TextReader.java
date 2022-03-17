@@ -429,7 +429,7 @@ public class TextReader {
 	 *            character
 	 * @return true if token character
 	 */
-	private static boolean isTokenCharacter(char c) {
+	public static boolean isTokenCharacter(char c) {
 		return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')
 				|| (c >= '0' && c <= '9') || c == '-' || c == '.' || c == '+'
 				|| c == ':' || c == '_';
@@ -442,7 +442,7 @@ public class TextReader {
 	 *            character
 	 * @return true if quote character
 	 */
-	private static boolean isQuoteCharacter(char c) {
+	public static boolean isQuoteCharacter(char c) {
 		boolean quote = c == '"';
 		if (!quote) {
 			int type = Character.getType(c);
@@ -459,7 +459,7 @@ public class TextReader {
 	 *            character
 	 * @return true if whitespace
 	 */
-	private static boolean isWhitespace(char c) {
+	public static boolean isWhitespace(char c) {
 		return Character.isWhitespace(c) || Character.isSpaceChar(c);
 	}
 
