@@ -160,4 +160,4 @@ Parse OGC Coordinate Reference System Well-Known Text (1|2) and pretty print Coo
 
 Or run against the jar:
 
-    java -jar crs-*.jar well-known_text
+    java -jar crs-*.jar [well-known_text]
