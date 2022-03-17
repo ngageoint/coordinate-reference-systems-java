@@ -4,7 +4,7 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 1.1.3 (TBD)
+## [1.1.3](https://github.com/ngageoint/coordinate-reference-systems-java/releases/tag/1.1.3) (03-17-2022)
 
 * CRS Reader ignore non whitespace space characters such as 'NO-BREAK SPACE'
 * CRS Reader error handling while reading separator when no tokens remain
