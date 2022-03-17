@@ -1188,7 +1188,7 @@ public class CRSReader implements Closeable {
 	 */
 	public void readSeparator() throws IOException {
 		String token = reader.peekToken();
-		if (token.equals(WKTConstants.SEPARATOR)) {
+		if (token != null && token.equals(WKTConstants.SEPARATOR)) {
 			reader.readExpectedToken();
 		} else if (strict) {
 			throw new CRSException(
