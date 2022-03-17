@@ -103,29 +103,36 @@ public class CRSPretty {
 			while (scanner.hasNextLine()) {
 				try {
 					String line = scanner.nextLine().trim();
-					wktBuilder.append(line);
-
-					openBrackets += line.length()
-							- line.replaceAll("\\[", "").length();
-					closeBrackets += line.length()
-							- line.replaceAll("]", "").length();
-
-					if (closeBrackets >= openBrackets && closeBrackets > 0) {
-
-						String wkt = wktBuilder.toString().trim();
-						char firstChar = wkt.charAt(0);
-						char lastChar = wkt.charAt(wkt.length() - 1);
-						if (isQuoteCharacter(firstChar)
-								&& firstChar == lastChar) {
-							wkt = wkt.substring(1, wkt.length() - 1).trim();
+					if (line.isEmpty()) {
+						if (wktBuilder.length() == 0) {
+							break;
 						}
+					} else {
+						wktBuilder.append(line);
 
-						parseAndPrint(wkt);
-						resetCommandPrompt(wktBuilder);
+						openBrackets += line.length()
+								- line.replaceAll("\\[", "").length();
+						closeBrackets += line.length()
+								- line.replaceAll("]", "").length();
 
-						openBrackets = 0;
-						closeBrackets = 0;
+						if (closeBrackets >= openBrackets
+								&& closeBrackets > 0) {
 
+							String wkt = wktBuilder.toString().trim();
+							char firstChar = wkt.charAt(0);
+							char lastChar = wkt.charAt(wkt.length() - 1);
+							if (isQuoteCharacter(firstChar)
+									&& firstChar == lastChar) {
+								wkt = wkt.substring(1, wkt.length() - 1).trim();
+							}
+
+							parseAndPrint(wkt);
+							resetCommandPrompt(wktBuilder);
+
+							openBrackets = 0;
+							closeBrackets = 0;
+
+						}
 					}
 
 				} catch (Exception e) {
