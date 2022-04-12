@@ -29,7 +29,7 @@ public enum OperationParameters {
 	/**
 	 * direction (north zero, east of north being positive) of the great circle
 	 * which is the centre line of an oblique projection
-	 * 
+	 * <p>
 	 * The azimuth is given at the projection centre.
 	 */
 	AZIMUTH_OF_INITIAL_LINE(8813, "azimuth of initial line",
@@ -91,7 +91,7 @@ public enum OperationParameters {
 	 * geodetic latitude of one of the parallels of intersection of the cone
 	 * with the ellipsoid. It is normally but not necessarily that nearest to
 	 * the pole
-	 * 
+	 * <p>
 	 * Scale is true along this parallel.
 	 */
 	LATITUDE_OF_1ST_STANDARD_PARALLEL(8823, "latitude of 1st standard parallel",
@@ -99,11 +99,10 @@ public enum OperationParameters {
 			"standard parallel 1"),
 
 	/**
-	 * 
 	 * geodetic latitude of one of the parallels at which the cone intersects
 	 * with the ellipsoid. It is normally but not necessarily that nearest to
 	 * the equator
-	 * 
+	 * <p>
 	 * Scale is true along this parallel.
 	 */
 	LATITUDE_OF_2ND_STANDARD_PARALLEL(8824, "latitude of 2nd standard parallel",
@@ -123,7 +122,7 @@ public enum OperationParameters {
 	 * geographical coordinates on the ellipsoid and the grid coordinates on the
 	 * projection are deemed to increment or decrement for computational
 	 * purposes
-	 * 
+	 * <p>
 	 * Alternatively: geodetic latitude of the point which in the absence of
 	 * application of false coordinates has grid coordinates of (0,0).
 	 */
@@ -166,7 +165,7 @@ public enum OperationParameters {
 	 * geographical coordinates on the ellipsoid and the grid coordinates on the
 	 * projection are deemed to increment or decrement for computational
 	 * purposes
-	 * 
+	 * <p>
 	 * Alternatively: geodetic longitude of the point which in the absence of
 	 * application of false coordinates has grid coordinates of (0,0).
 	 */
@@ -224,7 +223,7 @@ public enum OperationParameters {
 	/**
 	 * the ratio of a length between two points in target and source coordinate
 	 * reference systems.
-	 * 
+	 * <p>
 	 * If a distance of 100 km in the source coordinate reference system
 	 * translates into a distance of 100.001 km in the target coordinate
 	 * reference system, the scale difference is 1 ppm (the ratio being
@@ -234,7 +233,6 @@ public enum OperationParameters {
 			"ppm"),
 
 	/**
-	 * 
 	 * factor by which the map grid is reduced or enlarged during the projection
 	 * process, defined by its value at the natural origin
 	 */
@@ -265,7 +263,7 @@ public enum OperationParameters {
 	/**
 	 * angular difference between the Y and Z axes directions of target and
 	 * source coordinate reference systems
-	 * 
+	 * <p>
 	 * This is a rotation about the X axis as viewed from the origin looking
 	 * along that axis. The particular method defines which direction is
 	 * positive, and what is being rotated (point or axis).
@@ -283,7 +281,7 @@ public enum OperationParameters {
 	/**
 	 * angular difference between the X and Z axes directions of target and
 	 * source coordinate reference systems
-	 * 
+	 * <p>
 	 * This is a rotation about the Y axis as viewed from the origin looking
 	 * along that axis. The particular method defines which direction is
 	 * positive, and what is being rotated (point or axis).
@@ -301,7 +299,7 @@ public enum OperationParameters {
 	/**
 	 * angular difference between the X and Y axes directions of target and
 	 * source coordinate reference systems
-	 * 
+	 * <p>
 	 * This is a rotation about the Z axis as viewed from the origin looking
 	 * along that axis. The particular method defines which direction is
 	 * positive, and what is being rotated (point or axis).
