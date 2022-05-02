@@ -6,7 +6,7 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ## 1.1.4 (TBD)
 
-* TBD
+* Non projected ETRS89 GeoDatum fix (EPSG:4258)
 
 ## [1.1.3](https://github.com/ngageoint/coordinate-reference-systems-java/releases/tag/1.1.3) (03-17-2022)
 

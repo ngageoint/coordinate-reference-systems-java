@@ -246,7 +246,8 @@ public class ProjParser {
 
 		GeoDatums commonGeoDatum = GeoDatums.fromName(geoDatum.getName());
 
-		if (commonGeoDatum != null) {
+		// Check for special cases like EPSG 4258 which specify the ellipsoid
+		if (commonGeoDatum != null && commonGeoDatum != GeoDatums.ETRS89) {
 			params.setDatum(commonGeoDatum.getCode());
 		} else {
 			updateEllipsoid(params, geoDatum.getEllipsoid());
