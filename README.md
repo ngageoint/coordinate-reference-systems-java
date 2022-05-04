@@ -132,14 +132,14 @@ String projTextFromWKT = ProjParser.paramsText(wkt);
 
 ### Installation ###
 
-Pull from the [Maven Central Repository](http://search.maven.org/#artifactdetails|mil.nga|crs|1.1.3|jar) (JAR, POM, Source, Javadoc)
+Pull from the [Maven Central Repository](http://search.maven.org/#artifactdetails|mil.nga|crs|1.1.4|jar) (JAR, POM, Source, Javadoc)
 
 ```xml
 
 <dependency>
     <groupId>mil.nga</groupId>
     <artifactId>crs</artifactId>
-    <version>1.1.3</version>
+    <version>1.1.4</version>
 </dependency>
 
 ```
