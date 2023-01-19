@@ -202,6 +202,16 @@ public class CRSPretty {
 				System.out.println(crsPretty);
 			}
 
+			String crsSingleLine = CRSWriter.write(crs);
+			if (!wkt.equals(crsSingleLine)) {
+				System.out.println();
+				System.out.println("---------------------------------");
+				System.out.println("CRS Well-Known Text (Single Line)");
+				System.out.println("---------------------------------");
+				System.out.println();
+				System.out.println(crsSingleLine);
+			}
+
 			System.out.println();
 			System.out.println("-----------");
 			System.out.println("PROJ Params");
