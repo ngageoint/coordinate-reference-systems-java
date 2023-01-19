@@ -4,9 +4,9 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 1.1.5 (TBD)
+## [1.1.5](https://github.com/ngageoint/coordinate-reference-systems-java/releases/tag/1.1.5) (01-19-2023)
 
-* TBD
+* Pretty command line utility single line CRS Well-Known Text output
 
 ## [1.1.4](https://github.com/ngageoint/coordinate-reference-systems-java/releases/tag/1.1.4) (05-04-2022)
 
